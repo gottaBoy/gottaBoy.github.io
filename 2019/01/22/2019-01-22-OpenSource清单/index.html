@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blog, java, go, vue" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="圣女哥哥的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="文件 铭辉 SpringBoot整合ActiveMQ SpringBoot WebSocket 实现简单的聊天功能 分库分表技术演进&amp;最佳实践 从构建分布式秒杀系统聊聊验证码 腾讯云短信图片验证码防刷接入指引 dubbo 有赞帮助中心 config 精巧好用的DelayQueue jmeter spring boot 自学笔记(五) Rabbitmq集成,延时消息队列实现 Spring B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenSource清单">
+<meta property="og:url" content="http://gottaboy.cn/2019/01/22/2019-01-22-OpenSource%E6%B8%85%E5%8D%95/index.html">
+<meta property="og:site_name" content="圣女哥哥的博客">
+<meta property="og:description" content="文件 铭辉 SpringBoot整合ActiveMQ SpringBoot WebSocket 实现简单的聊天功能 分库分表技术演进&amp;最佳实践 从构建分布式秒杀系统聊聊验证码 腾讯云短信图片验证码防刷接入指引 dubbo 有赞帮助中心 config 精巧好用的DelayQueue jmeter spring boot 自学笔记(五) Rabbitmq集成,延时消息队列实现 Spring B">
+<meta property="article:published_time" content="2019-01-22T06:17:26.000Z">
+<meta property="article:modified_time" content="2020-02-26T08:11:00.191Z">
+<meta property="article:author" content="gottaBoy">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gottaboy.cn/2019/01/22/2019-01-22-OpenSource清单/"/>
+
+
+
+
+
+  <title>OpenSource清单 | 圣女哥哥的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gottaboy" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">圣女哥哥的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">快乐生活每一天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gottaboy.cn/2019/01/22/2019-01-22-OpenSource%E6%B8%85%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gottaBoy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="圣女哥哥的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OpenSource清单</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T14:17:26+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  763
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><ol>
+<li><a href="https://gitee.com/myHomeShine/MCMS" target="_blank" rel="noopener">铭辉</a></li>
+<li><a href="https://www.cnblogs.com/zq-boke/p/6738895.html" target="_blank" rel="noopener">SpringBoot整合ActiveMQ</a></li>
+<li><a href="https://blog.csdn.net/tengxing007/article/details/77961355" target="_blank" rel="noopener">SpringBoot WebSocket 实现简单的聊天功能</a></li>
+<li><a href="https://mp.weixin.qq.com/s/mL_9HJmBfey_kJDjfNTtlw" target="_blank" rel="noopener">分库分表技术演进&amp;最佳实践</a></li>
+<li><a href="https://cloud.tencent.com/info/bb87cbdc3fa3d39bd0f012f9368af501.html" target="_blank" rel="noopener">从构建分布式秒杀系统聊聊验证码</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1150711" target="_blank" rel="noopener">腾讯云短信图片验证码防刷接入指引</a></li>
+<li><a href="https://github.com/apache/incubator-dubbo" target="_blank" rel="noopener">dubbo</a></li>
+<li><a href="https://help.youzan.com/displaylist/detail_4_994" target="_blank" rel="noopener">有赞帮助中心</a></li>
+<li><a href="https://github.com/spring-cloud/spring-cloud-config" target="_blank" rel="noopener">config</a></li>
+<li><a href="https://www.cnblogs.com/jobs/archive/2007/04/27/730255.html" target="_blank" rel="noopener">精巧好用的DelayQueue</a></li>
+<li><a href="https://www.yiibai.com/jmeter/working-of-jmeter.html" target="_blank" rel="noopener">jmeter</a></li>
+<li><a href="https://blog.csdn.net/i_vic/article/details/72742277" target="_blank" rel="noopener">spring boot 自学笔记(五) Rabbitmq集成,延时消息队列实现</a></li>
+<li><a href="https://blog.csdn.net/woaitingting1985/article/details/79087357" target="_blank" rel="noopener">Spring Boot + RabbitMQ死信机制实现延迟队列</a></li>
+<li><a href="https://www.jianshu.com/p/b74a14c7f31d" target="_blank" rel="noopener">第四十六章：SpringBoot &amp; RabbitMQ完成消息延迟消费</a></li>
+</ol>
+<ul>
+<li><p><a href="https://blog.csdn.net/linsongbin1/article/details/80178122" target="_blank" rel="noopener">Spring Boot RabbitMQ 延迟消息实现完整版</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/hry2015/article/details/67640534" target="_blank" rel="noopener">Spring Boot系列二 Spring @Async异步线程池用法总结</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/0170d71dc502" target="_blank" rel="noopener">Spring Boot 配置和使用多线程池</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/yw0219/p/8673011.html" target="_blank" rel="noopener">Spring Boot干货系列：（三）启动原理解析</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_27384769/article/details/79443242" target="_blank" rel="noopener">Spring Cloud Security OAuth2搭建授权服务</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_27384769/article/details/79439801" target="_blank" rel="noopener">spring cloud 实战（干货）</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_27384769/article/details/79695290" target="_blank" rel="noopener">Spring Cloud技术分析-服务治理</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_27384769/article/details/79062290" target="_blank" rel="noopener">spring cloud 微服务</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_27384769/article/details/79123193" target="_blank" rel="noopener">spring cloud- 阿波罗 apllo 本地开发环境</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/tianyaleixiaowu/article/details/78281392" target="_blank" rel="noopener">Springboot SpringCloud集成OAuth2入门详细教程</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/u010820702/article/details/63672618/" target="_blank" rel="noopener">Spring Boot Admin UI 分布式微服务监控中心</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_36594703/article/details/81321269" target="_blank" rel="noopener">SpringBoot监控中心之搭建Actuator监控中心</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/minigrasshopper/p/7928311.html" target="_blank" rel="noopener">vue2.0 实现导航守卫（路由守卫）</a></p>
+</li>
+<li><p><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">JavaGuide</a></p>
+</li>
+<li><p><a href="https://github.com/geekcompany/ResumeSample/blob/master/architect.md" target="_blank" rel="noopener">构师简历模板</a></p>
+</li>
+<li><p><a href="http://cv.ftqq.com/?fr=github#" target="_blank" rel="noopener">简历</a></p>
+</li>
+<li><p><a href="http://guide.daocloud.io/dcs/3-9152643.html" target="_blank" rel="noopener">部署您的第一个容器(约3分钟)</a></p>
+</li>
+<li><p><a href="https://gitee.com/hengboy/spring-boot-chapter" target="_blank" rel="noopener">《Spring Boot 核心技术》</a></p>
+</li>
+<li><p><a href="https://www.yiibai.com/spring_mvc/springmvc_beannameurlhandlermapping.html" target="_blank" rel="noopener">Spring MVC教程</a></p>
+</li>
+<li><p><a href="https://www.yiibai.com/mysql/mysql_quick_start.html" target="_blank" rel="noopener">MySQL快速学习入门</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/vinozly/p/4851364.html" target="_blank" rel="noopener">RBAC用户角色权限设计方案</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/ljw499356212/article/details/81055141" target="_blank" rel="noopener">RBAC用户、角色、权限、组设计方案</a></p>
+</li>
+<li><p><a href="https://docs.docker.com/compose/wordpress/" target="_blank" rel="noopener">Quickstart: Compose and WordPress</a></p>
+</li>
+<li><p><a href="https://www.centos.bz/2018/06/nginx%E4%B8%8B%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEwordpress%E4%B8%BA%E5%A4%9A%E7%AB%99%E7%82%B9%EF%BC%9F/" target="_blank" rel="noopener">Nginx下如何设置WordPress为多站点？</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/dandandeshangni/article/details/79771538" target="_blank" rel="noopener">Docker Compose+nginx实现负载均衡</a></p>
+</li>
+<li><p><a href="https://github.com/longfeizheng/docker-compose-boot-nginx" target="_blank" rel="noopener">docker-compose-boot-nginx</a></p>
+</li>
+<li><p><a href="http://www.ityouknow.com/docker/2018/03/22/docker-compose.html" target="_blank" rel="noopener">Docker-Compose </a></p>
+</li>
+<li><p><a href="https://gitee.com/myHomeShine/zscat_sw" target="_blank" rel="noopener">springboot dubbo redis solr mq kafka 商城 blog cms</a></p>
+</li>
+<li><p><a href="https://gitee.com/robertleepeak/fastpay" target="_blank" rel="noopener">Fastpay</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/lian_xl/article/details/79999205" target="_blank" rel="noopener">Dubbo详解+SpringBoot配置Dubbo</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/learnhow/p/5694876.html" target="_blank" rel="noopener">30分钟学会如何使用Shiro</a></p>
+</li>
+<li><p><a href="http://shiro.apache.org/spring.html#lend-a-hand-with-documentation" target="_blank" rel="noopener">Integrating Apache Shiro into Spring-based Applications</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/spring-cloud-starter-dalston-8-4/" target="_blank" rel="noopener">Spring Cloud构建微服务架构：分布式服务跟踪（整合zipkin）【Dalston版】</a></p>
+</li>
+<li><p><a href="http://svip.iocoder.cn/" target="_blank" rel="noopener">芋道源码</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/tags/Netflix/" target="_blank" rel="noopener">Netflix</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/Spring-Cloud%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Spring Cloud基础教程</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/spring-boot-flyway-db-version/" target="_blank" rel="noopener">Spring Boot中使用Flyway来管理数据库版本</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/springbootdata1/" target="_blank" rel="noopener">Spring Boot中使用JdbcTemplate访问数据库</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/Spring-Cloud-Zuul-use-Swagger-API-doc/" target="_blank" rel="noopener">Spring Cloud Zuul中使用Swagger汇总API接口文档</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/springbootswagger2/" target="_blank" rel="noopener">Spring Boot中使用Swagger2构建强大的RESTful API文档</a></p>
+</li>
+<li><p><a href="http://blog.didispace.com/spring-boot-jolokia-grafana-monitor/" target="_blank" rel="noopener">使用Spring Boot Actuator、Jolokia和Grafana实现准实时监控</a></p>
+</li>
+<li><p><a href="http://www.iocoder.cn/Spring-Boot/good-collection/?side" target="_blank" rel="noopener">Spring Boot 实现原理与源码解析系统 —— 精品合集</a></p>
+</li>
+<li><p><a href="http://www.spring4all.com/article/256" target="_blank" rel="noopener">Spring Boot 默认日志的配置</a></p>
+</li>
+<li><p><a href="https://github.com/SpringForAll" target="_blank" rel="noopener">SpringForAll</a></p>
+</li>
+<li><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next</a></p>
+</li>
+<li><p><a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="noopener">plugins</a></p>
+</li>
+<li><p><a href="http://theme-next.iissnan.com/third-party-services.html#algolia-search" target="_blank" rel="noopener">第三方服务集成</a></p>
+</li>
+<li><p><a href="https://hexo.io/zh-cn/docs/templates" target="_blank" rel="noopener">templates</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">使用Hexo+Github一步步搭建属于自己的博客</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/pmd/1864686.html" target="_blank" rel="noopener">2019年，你必须知道的产品经理能力模型</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/zhichang/1114666.html" target="_blank" rel="noopener">了解一个公司文化，3个关键点：聘用谁、提拔谁和开除谁</a></p>
+</li>
+<li><p><a href="https://dh.woshipm.com/" target="_blank" rel="noopener">阿猫阿狗导航</a></p>
+</li>
+<li><p><a href="http://www.ppt118.com/" target="_blank" rel="noopener">风云办公</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/pmd/1524890.html" target="_blank" rel="noopener">产品经理必备 | 优秀PPT四要素：视觉、内容、演讲和情绪</a></p>
+</li>
+<li><p><a href="">iSlide</a></p>
+</li>
+<li><p><a href="color.hailpixel.com">非常方便好用的配色网站</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/pmd/1524890.html" target="_blank" rel="noopener">开源PPT插件</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/pmd/1524890.html" target="_blank" rel="noopener">阿里妈妈MUX打造的图标共享平台</a></p>
+</li>
+<li><p><a href="www.flaticon.com">国外免费图标资源站</a></p>
+</li>
+<li><p><a href="http://www.woshipm.com/pmd/1524890.html" target="_blank" rel="noopener">国外免费图片素材</a></p>
+</li>
+<li><p><a href="http://www.logoaplus.com/" target="_blank" rel="noopener">logoaplus</a></p>
+</li>
+<li><p><a href="https://gitee.com/myHomeShine/CBoard" target="_blank" rel="noopener">CBoard</a></p>
+</li>
+<li><p><a href="https://gitee.com/myHomeShine/BiPlatform-build" target="_blank" rel="noopener">BiPlatform</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/wyt007/p/6118176.html" target="_blank" rel="noopener">百度开源的70+项目</a></p>
+</li>
+<li><p><a href="">百度开源项目推荐</a></p>
+</li>
+<li><p><a href="http://www.pudn.com/Download/item/id/3308742.html" target="_blank" rel="noopener">联合开发网</a></p>
+</li>
+<li><p><a href="https://biplatform.nl/" target="_blank" rel="noopener">biplatform</a></p>
+</li>
+<li><p><a href="https://www.csdn.net/" target="_blank" rel="noopener">csdn</a></p>
+</li>
+<li><p><a href="https://baijiahao.baidu.com/s?id=1577806886302766229&wfr=spider&for=pc" target="_blank" rel="noopener">百度开源项目推荐</a></p>
+</li>
+<li><p><a href="http://fex.baidu.com/code.html" target="_blank" rel="noopener">baidu</a></p>
+</li>
+<li><p><a href="https://github.com/fex-team/fis/" target="_blank" rel="noopener">fex-team</a></p>
+</li>
+<li><p><a href="https://github.com/gottaBoy/BIPlatform" target="_blank" rel="noopener">BIPlatform</a></p>
+</li>
+<li><p><a href="https://my.oschina.net/biplatform" target="_blank" rel="noopener">操作手册</a></p>
+</li>
+<li><p><a href="https://my.oschina.net/biplatform/blog/412942" target="_blank" rel="noopener">BIPlatform的安装以及本地开发环境搭建</a></p>
+</li>
+<li><p><a href="https://github.com/apereo/cas" target="_blank" rel="noopener">cas</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/wlwl/p/10056067.html" target="_blank" rel="noopener">Springboot+CAS单点登录</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/xiaojf/p/6619060.html" target="_blank" rel="noopener">springboot + shiro + cas4.2.7 实战</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/ONROAD0612/article/details/72846247" target="_blank" rel="noopener">SpringBoot集成CAS客户端</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/question-sky/p/7061522.html" target="_blank" rel="noopener">Springboot security cas整合方案-原理篇</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/yelllowcong/article/details/79230681" target="_blank" rel="noopener">Cas之5.2.x版本之单点登录服务安装(SpringBoot启动)-yellowcong</a></p>
+</li>
+<li><p><a href="https://github.com/lingshufeng/shirosesison" target="_blank" rel="noopener">shirosesison</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/94192b744421" target="_blank" rel="noopener">win10</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    gottaBoy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://gottaboy.cn/2019/01/22/2019-01-22-OpenSource%E6%B8%85%E5%8D%95/" title="OpenSource清单">http://gottaboy.cn/2019/01/22/2019-01-22-OpenSource%E6%B8%85%E5%8D%95/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/2019-01-21-Django%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" rel="next" title="Django快速入门">
+                <i class="fa fa-chevron-left"></i> Django快速入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/23/2019-01-23-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="prev" title="博客搭建">
+                博客搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">gottaBoy</p>
+              <p class="site-description motion-element" itemprop="description">爱生活，爱分享</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gottaboy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:gottaboy@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+<div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="https://music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gottaBoy</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">195k</span>
+  
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

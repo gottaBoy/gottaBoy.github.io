@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="freepik," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="圣女哥哥的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="https:&#x2F;&#x2F;www.freepik.com&#x2F;  一、freepikfreepicsuicordovaionicframeworkngcordovamockservereasy-mocktesterhome测试opensource_projects组件化架构漫谈iosAndroid彻底组件化方案实践JIMUandroid组件化方案Android组件化开发方案Android 组件化开发详解kotl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="freepik">
+<meta property="og:url" content="http://gottaboy.cn/2018/03/23/2018-03-23-web-source/index.html">
+<meta property="og:site_name" content="圣女哥哥的博客">
+<meta property="og:description" content="https:&#x2F;&#x2F;www.freepik.com&#x2F;  一、freepikfreepicsuicordovaionicframeworkngcordovamockservereasy-mocktesterhome测试opensource_projects组件化架构漫谈iosAndroid彻底组件化方案实践JIMUandroid组件化方案Android组件化开发方案Android 组件化开发详解kotl">
+<meta property="article:published_time" content="2018-03-23T06:42:30.000Z">
+<meta property="article:modified_time" content="2020-02-26T08:20:08.750Z">
+<meta property="article:author" content="gottaBoy">
+<meta property="article:tag" content="freepik">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gottaboy.cn/2018/03/23/2018-03-23-web-source/"/>
+
+
+
+
+
+  <title>freepik | 圣女哥哥的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gottaboy" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">圣女哥哥的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">快乐生活每一天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gottaboy.cn/2018/03/23/2018-03-23-web-source/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gottaBoy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="圣女哥哥的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">freepik</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T14:42:30+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/freepik/" itemprop="url" rel="index">
+                    <span itemprop="name">freepik</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.freepik.com/" target="_blank" rel="noopener">https://www.freepik.com/</a> </p>
+<h3 id="一、freepik"><a href="#一、freepik" class="headerlink" title="一、freepik"></a>一、freepik</h3><p><a href="https://www.freepik.com/" target="_blank" rel="noopener">freepic</a><br><a href="http://m.sui.taobao.org/" target="_blank" rel="noopener">sui</a><br><a href="http://cordova.apache.org/" target="_blank" rel="noopener">cordova</a><br><a href="https://ionicframework.com" target="_blank" rel="noopener">ionicframework</a><br><a href="http://ngcordova.com/docs/plugins/" target="_blank" rel="noopener">ngcordova</a><br><a href="https://www.cnblogs.com/fnng/p/7511539.html" target="_blank" rel="noopener">mockserver</a><br><a href="https://easy-mock.com/login" target="_blank" rel="noopener">easy-mock</a><br><a href="https://testerhome.com/topics/9292" target="_blank" rel="noopener">testerhome测试</a><br><a href="https://testerhome.com/opensource_projects" target="_blank" rel="noopener">opensource_projects</a><br><a href="https://www.jianshu.com/p/67a6004f6930" target="_blank" rel="noopener">组件化架构漫谈ios</a><br><a href="https://www.jianshu.com/p/1b1d77f58e84" target="_blank" rel="noopener">Android彻底组件化方案实践</a><br><a href="https://github.com/gottaBoy/JIMU" target="_blank" rel="noopener">JIMU</a><br><a href="https://github.com/mqzhangw/JIMU" target="_blank" rel="noopener">android组件化方案</a><br><a href="https://www.jianshu.com/p/2c2971bd4fc4" target="_blank" rel="noopener">Android组件化开发方案</a><br><a href="https://www.jianshu.com/p/b7d4e6612e0c" target="_blank" rel="noopener">Android 组件化开发详解</a><br><a href="https://github.com/Cuieney/kotlin-life" target="_blank" rel="noopener">kotlin-life</a><br><a href="http://ibeetl.com/" target="_blank" rel="noopener">ibeetl</a><br><a href="https://gitee.com/organizations/baomidou/projects" target="_blank" rel="noopener">baomidou</a><br><a href="https://gitee.com/naan1993" target="_blank" rel="noopener">stylefeng</a><br><a href="https://gitee.com/minull/ace-security" target="_blank" rel="noopener">AG-Admin</a><br><a href="https://gitee.com/myHomeShine/AG-Admin-v2.0" target="_blank" rel="noopener">AG-Admin-ui</a><br><a href="http://www.css88.com/doc/zeptojs_api/#$.ajax" target="_blank" rel="noopener">css88</a><br><a href="https://github.com/gottaBoy/kotlin-life" target="_blank" rel="noopener">kotlin-life</a><br><a href="https://gitee.com/myHomeShine/jeesite4" target="_blank" rel="noopener">jeesite4</a><br><a href="https://gitee.com/myHomeShine/zheng" target="_blank" rel="noopener">myHomeShine</a><br><a href="https://gitee.com/myHomeShine/mybatisplus-spring-mvc" target="_blank" rel="noopener">Mybatis-Plus SpringMVC</a><br><a href="https://gitee.com/geekerdream/common-security" target="_blank" rel="noopener">common-security</a><br><a href="https://gitee.com/geekerdream" target="_blank" rel="noopener">geekerdream</a><br><a href="https://blog.52itstyle.com/archives/2457/" target="_blank" rel="noopener">上云之路之企业级云上网络解决方案</a><br><a href="http://www.runoob.com/wsdl/wsdl-tutorial.html" target="_blank" rel="noopener">WSDL 教程</a><br><a href="https://tencent.github.io/wepy/" target="_blank" rel="noopener">wepy</a><br><a href="https://www.cnblogs.com/linianhui/p/oauth2-authorization.html" target="_blank" rel="noopener">1.OAuth2授权</a><br><a href="http://shiyanjun.cn/archives/325.html" target="_blank" rel="noopener">Dubbo架构设计详解</a><br><a href="https://blog.csdn.net/abcde474524573/article/details/53026110" target="_blank" rel="noopener">dubbo 知识总结 dubbo配置参考</a><br><a href="https://www.cnblogs.com/fnng/p/7511539.html" target="_blank" rel="noopener">虫师</a><br><a href="https://juejin.im/post/5987370e6fb9a03c42430a30" target="_blank" rel="noopener">深入wepy小程序组件化框架</a><br><a href="https://auth0.com/docs/quickstart/spa/vanillajs" target="_blank" rel="noopener">auth0</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="noopener">理解OAuth 2.0</a><br><a href="https://www.gulpjs.com.cn/" target="_blank" rel="noopener">gulpjs</a><br><a href="https://github.com/spring-projects/spring-security-oauth" target="_blank" rel="noopener">spring-security-oauth</a><br><a href="https://platform.spring.io/platform/" target="_blank" rel="noopener">spring.io</a><br><a href="https://blog.csdn.net/liuchunming033/article/details/52399397" target="_blank" rel="noopener"> 基于Wiremock创建Mock Service平台</a><br><a href="http://wiselyman.iteye.com/blog/2215852" target="_blank" rel="noopener">异步请求处理</a><br><a href="https://www.cnblogs.com/panxuejun/p/6737031.html" target="_blank" rel="noopener">WebMvcConfigurer</a><br><a href="https://www.cnblogs.com/aimyfly/p/3406794.html" target="_blank" rel="noopener">select 自定义样式插件 selectize.js</a><br><a href="https://harvesthq.github.io/chosen/" target="_blank" rel="noopener">harvesthq</a><br><a href="https://blog.csdn.net/liuxia666/article/details/78424157?locationNum=10&fps=1" target="_blank" rel="noopener">自定义select样式控件</a><br><a href="https://github.com/myliuxia/lxSelect" target="_blank" rel="noopener">lxSelect</a><br><a href="https://blog.csdn.net/abcde474524573/article/details/53026110" target="_blank" rel="noopener">dubbo 知识总结 dubbo配置参考</a><br><a href="https://www.cnblogs.com/shanyou/p/3221990.html" target="_blank" rel="noopener">Windows安装和使用zookeeper</a><br><a href="https://gitee.com/52itstyle/springboot_dubbo_consumer" target="_blank" rel="noopener">springboot_dubbo_consumer</a><br><a href="https://blog.52itstyle.com/archives/2457/" target="_blank" rel="noopener">上云之路之企业级云上网络解决方案</a><br><a href="http://www.runoob.com/" target="_blank" rel="noopener">runoob</a><br><a href="http://www.runoob.com/wsdl/wsdl-tutorial.html" target="_blank" rel="noopener">WSDL 教程</a><br><a href="http://www.jcodecraeer.com/a/opensource/2014/1012/1748.html" target="_blank" rel="noopener">dynamic-load-apk-Apk动态加载框架</a><br><a href="http://www.infoq.com/cn/articles/Android-hot-fix" target="_blank" rel="noopener">Android热修复技术选型——三大流派解析</a><br><a href="https://www.jianshu.com/p/cd20368a2b50" target="_blank" rel="noopener">Android插件化 热修复热门框架简析</a><br><a href="https://blog.csdn.net/u012487644/article/details/78720815" target="_blank" rel="noopener">Android热修复框架学习及应用</a><br><a href="https://github.com/jasonross/Nuwa" target="_blank" rel="noopener">Nuwa</a><br><a href="https://github.com/Tencent/tinker" target="_blank" rel="noopener">tinker</a><br><a href="https://github.com/alibaba/AndFix" target="_blank" rel="noopener">AndFix</a><br><a href="https://github.com/Meituan-Dianping/Robust" target="_blank" rel="noopener">Robust</a><br><a href="http://www.jcodecraeer.com/a/opensource/2014/1012/1748.html" target="_blank" rel="noopener">dynamic-load-apk-Apk动态加载框架</a><br><a href="https://github.com/singwhatiwanna/dynamic-load-apks" target="_blank" rel="noopener">DL : Apk动态加载框架</a><br><a href="https://www.jianshu.com/p/7c6fbe468c00" target="_blank" rel="noopener">插件化之DynamicLoadApk原理解析</a><br><a href="https://github.com/gottaBoy/wechat-enterprise" target="_blank" rel="noopener">微信公共平台企业号版SDK</a><br><a href="https://github.com/node-webot/wechat-api" target="_blank" rel="noopener">微信公共平台API</a><br><a href="https://github.com/gottaBoy/ARouter" target="_blank" rel="noopener">ARouter</a><br><a href="https://github.com/gottaBoy/DDComponentForAndroid" target="_blank" rel="noopener">DDComponentForAndroid逻辑思维</a><br><a href="http://gdh.dict.cn/" target="_blank" rel="noopener">广东话</a><br><a href="https://www.zhihu.com/question/27687960" target="_blank" rel="noopener">区块链技术是什么？未来可能用于哪些方面？</a><br><a href="http://www.zcool.com.cn/article/ZMTYxNjg0.html" target="_blank" rel="noopener">站酷</a><br><a href="https://www.douban.com/note/645072436/" target="_blank" rel="noopener">设计素材网站——知乎</a><br><a href="http://www.infoq.com/cn/articles/Android-hot-fix" target="_blank" rel="noopener">安卓热部署</a><br><a href="https://blog.csdn.net/lmj623565791/article/details/54882693" target="_blank" rel="noopener">安卓热修复</a><br><a href="https://blog.csdn.net/kakaxi1o1/article/details/17516161" target="_blank" rel="noopener">Android文本输入框EditText属性和方法说明</a><br><a href="http://www.jb51.net/article/114995.htm" target="_blank" rel="noopener">Android金额输入框只允许输入小数点后两位效果</a><br><a href="https://www.wbiao.cn/" target="_blank" rel="noopener">品牌</a><br><a href="http://www.runoob.com/w3cnote/android-tutorial-viewpager.html" target="_blank" rel="noopener">安卓开发</a><br><a href="https://testerhome.com/topics/9292" target="_blank" rel="noopener">测试之家testerhome</a><br><a href="http://gitbook.cn/" target="_blank" rel="noopener">gitbook</a><br><a href="https://www.zhihu.com/question/35653408" target="_blank" rel="noopener">成都</a><br><a href="http://a.codekk.com/" target="_blank" rel="noopener">安卓源码</a><br><a href="https://github.com/nekocode/DividerDrawable" target="_blank" rel="noopener">划线</a><br><a href="https://www.jianshu.com/c/2103524e647f" target="_blank" rel="noopener">经选案例</a><br><a href="https://legacy.gitbook.com/@dubbo" target="_blank" rel="noopener">dubbo</a><br><a href="https://legacy.gitbook.com/book/smallnest/go-rpc-programming-guide/details" target="_blank" rel="noopener">Go RPC 开发指南</a><br><a href="https://legacy.gitbook.com/book/yeasy/docker_practice/details" target="_blank" rel="noopener">Docker —— 从入门到实践</a><br><a href="https://crossoverjie.top/" target="_blank" rel="noopener">1K star+ 的项目是如何炼成的？</a><br><a href="https://github.com/crossoverJie/SSM" target="_blank" rel="noopener">SSM</a></p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><a href="https://zhuanlan.zhihu.com/c_163002020" target="_blank" rel="noopener">SpringSecurity深度剖析</a><br><a href="https://segmentfault.com/a/1190000008281748" target="_blank" rel="noopener">Vue 2.0 + cordova 构建Android应用（一）</a><br><a href="https://www.cnblogs.com/vhen/p/7699381.html" target="_blank" rel="noopener">vue 日历签到</a><br><a href="https://www.cnblogs.com/herozhou/p/7017126.html" target="_blank" rel="noopener">vue初学实践之路——vue简单日历组件(1)</a><br><a href="http://www.docker.org.cn/" target="_blank" rel="noopener">docker</a><br><a href="http://www.docker.org.cn/docker/142.html" target="_blank" rel="noopener">基于 Docker 快速部署多需求 Spark 自动化测试环境</a><br><a href="https://juejin.im/entry/5661086c60b27cc26204e26c" target="_blank" rel="noopener">用 Docker 搭建 Angular 前端应用</a><br><a href="https://www.cnblogs.com/bigben0123/p/7886092.html" target="_blank" rel="noopener">基于Jenkins，docker实现自动化部署（持续交互）</a><br><a href="https://segmentfault.com/a/1190000007837054" target="_blank" rel="noopener">Jenkins集成Docker镜像实现自动发布</a><br><a href="https://www.jianshu.com/p/b524b151d35f" target="_blank" rel="noopener">Jenkins使用简易教程</a><br><a href="https://blog.csdn.net/mmd0308/article/details/77206563?locationNum=6&fps=1" target="_blank" rel="noopener">Docker安装Jenkins</a><br><a href="http://fuzhii.com/2015/12/25/docker-web-app/" target="_blank" rel="noopener">在 Docker 中完整部署 Web 应用</a><br><a href="https://blog.csdn.net/liumiaocn/article/details/78360466" target="_blank" rel="noopener">Angular 4入门教程系列：1：运行在Docker中的HelloWorld</a><br>[在 Docker 中完整部署 Web 应用](<a href="https://blog.csdn.net/zp357252539/article/details/52436897" target="_blank" rel="noopener">https://blog.csdn.net/zp357252539/article/details/52436897</a><br><a href="https://github.com/gottaBoy/SkyEye" target="_blank" rel="noopener">天眼</a><br><a href="https://blog.csdn.net/huashao0602/article/details/53486522" target="_blank" rel="noopener">SSH免密码登录</a><br><a href="https://blog.csdn.net/xlgen157387/article/details/50353317" target="_blank" rel="noopener"> 使用Jenkins配置Git+Maven的自动化构建</a><br><a href="https://github.com/wangmingjob/weapp-weipiao" target="_blank" rel="noopener">微票</a><br><a href="https://www.jianshu.com/p/59822a7b2fad" target="_blank" rel="noopener">Android彻底组件化demo发布</a><br><a href="https://www.cnblogs.com/st-leslie/p/5771241.html" target="_blank" rel="noopener">前端数据可视化echarts.js使用指南</a><br><a href="https://www.cnblogs.com/liuwei6/p/6708116.html" target="_blank" rel="noopener">MapReduce(一) mapreduce基础入门</a><br><a href="https://www.jianshu.com/p/d87d7140944e" target="_blank" rel="noopener">vue入门 | 使用vue.js2.0 + ElementUI开发后台管理系统详细教程（一）</a><br><a href="https://github.com/wutongke/ModularizationApp" target="_blank" rel="noopener">Android组件化开发实践</a><br><a href="https://juejin.im/post/58f99b3cac502e006395e6e7" target="_blank" rel="noopener">一个基于vue2、koa2和mongodb的博客</a><br><a href="https://www.jianshu.com/p/8a9ed762caf7" target="_blank" rel="noopener">Any Video 全栈开发：部署文档</a><br><a href="https://github.com/ChinaSilence/any-video" target="_blank" rel="noopener">any-video</a><br><a href="https://www.jianshu.com/p/aff05f5bd8a1" target="_blank" rel="noopener">Any-Video 全栈开发：初章</a><br><a href="https://mdluo.com/2018-02-11/you-may-not-need-oauth2/" target="_blank" rel="noopener">你可能并不需要 OAuth2</a><br><a href="http://imhjm.com/article/5977ebab7dd03248a2e8d57f" target="_blank" rel="noopener">深入wepy小程序组件化框架</a></p>
+<p><a href="http://www.woshipm.com/rp/421953.html" target="_blank" rel="noopener">Axure 原型 | 教你使用自适应视图构建界面</a><br><a href="https://ninghao.net/" target="_blank" rel="noopener">学习创造 Web 应用</a><br><a href="https://blog.csdn.net/hzp666/article/details/54972764" target="_blank" rel="noopener">IT产品制作流程</a><br><a href="http://www.woshipm.com/pmd/951491.html" target="_blank" rel="noopener">产品经理要懂规划，5个步骤学会IT系统咨询规划</a><br><a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">Axios 中文说明</a><br><a href="http://www.woshipm.com/pd/1392102.html" target="_blank" rel="noopener">订单系统：从0到1设计思路</a><br><a href="http://www.hsweb.me/" target="_blank" rel="noopener">hsweb企业后台管理系统基础框架</a><br><a href="https://www.uisdc.com/" target="_blank" rel="noopener">优设</a><br><a href="https://blog.csdn.net/GG_Eric/article/details/81320256" target="_blank" rel="noopener">Java 实现在线打印</a><br><a href="https://www.jb51.net/article/85334.htm" target="_blank" rel="noopener">JavaWeb实现打印功能</a><br><a href="https://blog.csdn.net/suyingsoft/article/details/70239252" target="_blank" rel="noopener">Java直接控制打印机打印</a><br><a href="https://blog.csdn.net/defonds/article/details/4440697" target="_blank" rel="noopener">一次 applet 客户端打印 jasperreport 报表任务笔记</a><br><a href="https://github.com/lexburner/zuul-gateway-demo" target="_blank" rel="noopener">Spring Cloud Zuul实现动态路由</a><br><a href="https://github.com/lexburner/oauth2-demo" target="_blank" rel="noopener">Re：从零开始的Spring Security Oauth2</a><br><a href="https://segmentfault.com/a/1190000016163966" target="_blank" rel="noopener">H5 前端性能测试实践</a><br><a href="https://segmentfault.com/a/1190000009191419" target="_blank" rel="noopener">zuul实现动态路由以及相关源码解析</a></p>
+<p><a href="https://github.com/tianyana/springcloud" target="_blank" rel="noopener">spring cloud</a><br><a href="https://segmentfault.com/a/1190000014814401" target="_blank" rel="noopener">springCloud Finchley 微服务架构从入门到精通【九】路由网关zuul</a><br><a href="https://repo.vbizz.cn/" target="_blank" rel="noopener">maven私服</a><br><a href="https://www.jianshu.com/p/bbd5b0abcad1" target="_blank" rel="noopener">maven冲突解决</a><br><a href="https://blog.csdn.net/ksgt00016758/article/details/26680233" target="_blank" rel="noopener">Maven提高篇系列之五——处理依赖冲突</a><br><a href="https://spring.io/blog/category/releases" target="_blank" rel="noopener">Spring Cloud Data Flow 1.7 M1 released</a><br><a href="https://cloud.spring.io/spring-cloud-dataflow/" target="_blank" rel="noopener">Spring Cloud Data Flow</a><br><a href="https://www.aliyun.com/jiaocheng/topic_66478.html" target="_blank" rel="noopener">HikariCP</a><br><a href="https://jolbox.com/" target="_blank" rel="noopener">HikariCP—史上最快速的连接池</a><br><a href="https://fastoredis.com/anonim_users_downloads" target="_blank" rel="noopener">fastoredis</a><br><a href="https://www.qt.io/" target="_blank" rel="noopener">qt</a><br><a href="http://www.redis.net.cn/order/3674.html" target="_blank" rel="noopener">Redis 服务器</a><br><a href="http://www.dimix.com.cn/cpzs/shejilinian.shtml" target="_blank" rel="noopener">德米萨</a><br><a href="http://www.cnblogs.com/fp2952/p/8973613.html" target="_blank" rel="noopener">Spring Cloud OAuth2（一） 搭建授权服务</a><br><a href="http://www.wangdian.cn/wangdian/index/product_ydbb.html" target="_blank" rel="noopener">旺店通</a><br><a href="https://github.com/fp2952/spring-cloud-base" target="_blank" rel="noopener">spring-cloud-base</a><br><a href="https://www.cnblogs.com/mengshenshenchu/p/6666300.html" target="_blank" rel="noopener">JS获取网页高度和宽度</a><br><a href="https://www.cnblogs.com/sunrunzhi/p/5310020.html" target="_blank" rel="noopener">JS 网页打印解决方案</a><br><a href="https://www.cnblogs.com/potatog/p/7412905.html" target="_blank" rel="noopener">JavaScript 实现打印操作</a><br><a href="https://blog.csdn.net/yongchao940/article/details/73129425" target="_blank" rel="noopener">JS实现打印的方式</a><br><a href="https://www.jb51.net/article/128788.htm" target="_blank" rel="noopener">ActiveX控件的使用-js实现打印超市小票功能代码详解</a><br><a href="https://blog.csdn.net/xinyflove/article/details/72138291" target="_blank" rel="noopener">html打印A4长宽设置</a><br><a href="https://www.jb51.net/article/121506.htm" target="_blank" rel="noopener">JS实现页面打印（整体、局部）</a><br><a href="https://www.cnblogs.com/GoCircle/p/6108404.html" target="_blank" rel="noopener">JS实现页面打印</a><br><a href="https://www.jianshu.com/p/e94007f59e8d" target="_blank" rel="noopener">那些年，Github上的干货！</a><br><a href="http://06peng.com/" target="_blank" rel="noopener">Redis Cluster安装配置</a><br><a href="https://blog.csdn.net/hebin320320/article/details/51393831" target="_blank" rel="noopener">GitHub开源控件的使用合集</a><br><a href="https://cnodejs.org/topic/59b22ecce483de12679844ad" target="_blank" rel="noopener">基于github的聊天室</a><br><a href="https://github.com/TakWolf/CNode-Material-Design" target="_blank" rel="noopener">CNode 社区第三方 Android 客户端，原生 App，Material Design 风格，支持夜间模式</a><br><a href="https://github.com/pengliheng/chatroom" target="_blank" rel="noopener">💬react+socket.io = welcome to visit my finely crafted chatroom </a><br><a href="https://cnodejs.org/" target="_blank" rel="noopener">cnodejs</a><br><a href="https://gitee.com/minull/ace-security" target="_blank" rel="noopener">AG-Enterprise（企业效率）</a><br><a href="http://www.bbcto.cn/view/9" target="_blank" rel="noopener">AG-Enterprise（企业效率）</a><br><a href="http://www.bbcto.cn/view/2" target="_blank" rel="noopener">Spring Cloud下微服务权限实践经验</a><br><a href="https://github.com/wxiaoqi/Spring-Cloud-Admin" target="_blank" rel="noopener">Spring-Cloud-Admin</a><br><a href="https://gitee.com/xurime/excelize" target="_blank" rel="noopener">Excelize 是 Go 语言编写</a><br><a href="https://gitee.com/agile-bpm/agile-bpm-basic" target="_blank" rel="noopener">AgileBPM 敏捷工作流开发平台</a><br><a href="https://gitee.com/tuiqiao/CBoard" target="_blank" rel="noopener">CBoard</a><br><a href="https://gitee.com/myHomeShine/jeeSpringCloud" target="_blank" rel="noopener">JeeSpringCloudV2.5-互联网云快速开发框架</a><br><a href="https://github.com/leecho/cola-cloud" target="_blank" rel="noopener">Cola Cloud 基于 Spring Boot,</a><br><a href="http://www.semantic-ui.cn/" target="_blank" rel="noopener">semantic</a><br><a href="https://blog.csdn.net/bao19901210/article/details/52574340" target="_blank" rel="noopener">spring security四种实现方式</a><br><a href="https://www.ibm.com/developerworks/cn/java/j-lo-springsecurity/" target="_blank" rel="noopener">使用 Spring Security 保护 Web 应用的安全</a><br><a href="https://springcloud.cc/spring-security-zhcn.html" target="_blank" rel="noopener">Spring Security 参考手册</a><br><a href="https://github.com/fp2952/spring-cloud-base" target="_blank" rel="noopener">spring-cloud-base</a><br><a href="https://github.com/gottaBoy/spring-cloud-rest-tcc" target="_blank" rel="noopener">spring-cloud-rest-tcc</a><br><a href="http://imweb.io/topic/57c8cbb27f226f687b365636" target="_blank" rel="noopener">PM2实用入门指南</a><br><a href="http://imweb.io/celebrity/list" target="_blank" rel="noopener">IMWeb</a><br><a href="https://blog.ymfe.org/react-sketch-app/" target="_blank" rel="noopener">使用 React 管理你的设计资产</a><br><a href="https://github.com/airbnb/react-sketchapp" target="_blank" rel="noopener">render React components to Sketch</a><br><a href="https://github.com/YMFE/yapi" target="_blank" rel="noopener">YApi 是一个可本地部署的、打通前后端及QA的、可视化的接口管理平台</a><br><a href="https://github.com/zhangxd1989" target="_blank" rel="noopener">spring-boot-cloud</a><br><a href="https://github.com/zhangxd1989/springboot-dubbox" target="_blank" rel="noopener">springboot-dubbox</a><br><a href="https://github.com/shuzheng/zheng" target="_blank" rel="noopener">基于Spring+SpringMVC+Mybatis分布式敏捷开发系统架构</a><br><a href="https://github.com/wiselyman/uaa-zuul" target="_blank" rel="noopener">使用OAUTH2+Zuul实现认证和授权</a><br><a href="https://gitee.com/aaluoxiang/oa_system" target="_blank" rel="noopener">OA办公自动化系统，极高办公效率</a><br><a href="https://gitee.com/gavinzhulei/vue-form-making" target="_blank" rel="noopener">基于Vue,ElementUI快速创建生成表单，进行数据校验，获取表单数据</a><br><a href="https://gitee.com/ruyangit/seed-workbench-ui" target="_blank" rel="noopener">vue开发的管理平台，中台及后台解决方案，vue-admin 管理平台，ant-design-vue-pro 管理平台</a><br><a href="https://gitee.com/ruyangit/springboot-seed" target="_blank" rel="noopener">springboot-seed</a><br><a href="https://www.cnblogs.com/fp2952/p/8933107.html" target="_blank" rel="noopener">spring-security权限控制详解</a><br><a href="http://www.cnblogs.com/fp2952/p/8973613.html" target="_blank" rel="noopener">Spring Cloud OAuth2（一） 搭建授权服务</a><br><a href="https://www.cnblogs.com/fp2952/p/9193959.html" target="_blank" rel="noopener">OAuth2（二） 扩展登陆方式：账户密码登陆、 手机验证码登陆、 二维码扫码登陆</a><br><a href="https://github.com/spring-projects" target="_blank" rel="noopener">spring-projects</a><br><a href="https://www.jianshu.com/p/e6655328b211" target="_blank" rel="noopener">初步理解Spring Security并实践</a><br><a href="http://www.bbcto.cn/view/1" target="_blank" rel="noopener">AG-Admin服务化平台</a><br><a href="http://www.bbcto.cn/view/12" target="_blank" rel="noopener">Spring Cloud 多租户实现课程</a><br><a href="https://gitee.com/minull/ace-security" target="_blank" rel="noopener">Cloud-Admin</a><br><a href="https://blog.csdn.net/CrazyCoder2010/article/details/78414448" target="_blank" rel="noopener">第一章 SpringCloud概要</a><br><a href="https://github.com/AsuraTeam/monitor" target="_blank" rel="noopener">monitor 阿修罗监控系统</a><br><a href="https://github.com/kwang2003/pachira-springcloud" target="_blank" rel="noopener">项目基于SpringCloud技术栈</a><br><a href="https://github.com/venus-boot/saluki" target="_blank" rel="noopener">saluki</a><br><a href="https://github.com/iluwatar/java-design-patterns" target="_blank" rel="noopener">java设计模式</a><br><a href="https://github.com/kwang2003/rest-auth" target="_blank" rel="noopener">rest API相关的各种认证方式原理及代码实现</a><br><a href="https://github.com/kwang2003/pachira-springcloud" target="_blank" rel="noopener">基于SpringCloud技术栈实现的微服务架构框架，oauth2,权限管理，任务调度管理quartz</a><br><a href="http://cloud.spring.io/spring-cloud-static/Dalston.SR1/#spring-cloud-feign" target="_blank" rel="noopener">spring-cloud-static</a><br><a href="https://www.jianshu.com/p/59295c91dde7" target="_blank" rel="noopener">Spring Cloud Feign使用详解</a><br><a href="https://blog.csdn.net/w1054993544/article/details/78932614" target="_blank" rel="noopener">Spring cloud微服务实战——基于OAUTH2.0统一认证授权的微服务基础架构</a><br><a href="https://blog.csdn.net/qq_36527839/article/details/70821425" target="_blank" rel="noopener">MYSQL全文索引—CONTAINS语法</a><br><a href="https://github.com/babylikebird/Micro-Service-Skeleton" target="_blank" rel="noopener">微服务开发基础框架</a><br><a href="https://www.yuanfeng.cn/index.html" target="_blank" rel="noopener">远丰电商集团</a><br><a href="http://www.weyifeng.com/" target="_blank" rel="noopener">深圳智慧星辰智能科技有限公司</a><br><a href="http://www.sunnsoft.com/" target="_blank" rel="noopener">商旅软件</a><br><a href="https://www.dscmall.cn/index.html" target="_blank" rel="noopener">大商创</a><br><a href="http://www.yonyou-hh.com/" target="_blank" rel="noopener">鸿欢</a><br><a href="https://www.drools.org/" target="_blank" rel="noopener">java 快速开发drools</a><br><a href="https://hub.docker.com/r/jboss/drools-workbench/" target="_blank" rel="noopener">jboss</a><br><a href="https://mp.weixin.qq.com/s/Qc9ISghjW56wh4HSru0MSg" target="_blank" rel="noopener">浅谈分布式消息技术：Kafka</a><br><a href="https://bbs.csdn.net/topics/390299009?page=1" target="_blank" rel="noopener">mysql sum</a><br><a href="http://www.woshipm.com/search-posts?k=%E4%BA%92%E8%81%94%E7%BD%91%E9%87%91%E8%9E%8D" target="_blank" rel="noopener">互联网金融</a><br><a href="http://www.woshipm.com/operate/615994.html" target="_blank" rel="noopener">互联网金融：从0搭建用户增长体系</a><br><a href="http://www.woshipm.com/evaluating/1441406.html" target="_blank" rel="noopener">互金（金融、P2P）产品竞品分析报告：人人货、团贷网、君财、地标</a><br><a href="http://www.woshipm.com/pd/801560.html" target="_blank" rel="noopener">互联网金融体验设计方法库</a><br><a href="http://www.woshipm.com/u/178575" target="_blank" rel="noopener">腾讯CDC</a><br><a href="">2017国际体验设计大会 | 搭建互联网金融产品的体验创新方法库</a><br><a href="https://blog.csdn.net/pretent/article/details/54023415">Spring Cloud Netflix</a><br><a href="http://blog.51cto.com/wyait/2137112" target="_blank" rel="noopener">springboot创建父子工程、聚合工程及问题解决</a><br><a href="http://blog.51cto.com/wyait/2048478" target="_blank" rel="noopener">spring boot 1.5.9 整合redis</a><br><a href="https://blog.csdn.net/qq_26000415/article/details/79065075" target="_blank" rel="noopener">spring boot 源码解析24-HealthEndpoint解析</a><br><a href="http://www.redis.net.cn/order/3674.html" target="_blank" rel="noopener">Redis 服务器</a><br><a href="https://blog.csdn.net/qq_27384769/article/details/79443242" target="_blank" rel="noopener">更多干货</a><br><a href="https://github.com/pengliheng/chatroom/" target="_blank" rel="noopener">chatroom</a><br><a href="https://github.com/aermin/vue-chat" target="_blank" rel="noopener">vue-chat</a><br><a href="https://github.com/aermin/electron-vue-chat" target="_blank" rel="noopener">electron-vue-chat</a><br><a href="http://www.tuling123.com/" target="_blank" rel="noopener">图灵机器人</a><br><a href="https://github.com/xrr2016/zhihu-daily" target="_blank" rel="noopener">知乎日报(Vuejs) </a><br><a href="https://github.com/xrr2016/learn-game-dev" target="_blank" rel="noopener">学习HTML5游戏开发</a><br><a href="https://github.com/xrr2016/zhihu-daily" target="_blank" rel="noopener">zhihu-daily</a><br><a href="https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90" target="_blank" rel="noopener">知乎日报 API 分析</a><br><a href="https://parceljs.org/" target="_blank" rel="noopener">极速零配置Web应用打包工具</a><br><a href="https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS" target="_blank" rel="noopener">Under-the-hood-ReactJS</a><br><a href="https://github.com/apocas/dockerode" target="_blank" rel="noopener">dockerode</a><br><a href="https://github.com/dockeron/dockeron" target="_blank" rel="noopener">dockeron</a><br><a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">electron-vue</a><br><a href="https://github.com/electron/electron-api-demos" target="_blank" rel="noopener">electron-api-demos</a><br><a href="https://github.com/hokein/electron-sample-apps" target="_blank" rel="noopener">electron-sample-apps</a><br><a href="https://github.com/ODIQueensland/data-curator" target="_blank" rel="noopener">ODIQueensland</a><br><a href="https://nwjs.io/" target="_blank" rel="noopener">nwjs</a><br><a href="http://get.ftqq.com/7870.get" target="_blank" rel="noopener">GET社区</a><br><a href="http://get.ftqq.com/7843.get" target="_blank" rel="noopener">40个良好用户界面Tips</a><br><a href="http://www.shejidaren.com/good-user-interface-design.html" target="_blank" rel="noopener">40个良好用户界面Tips</a><br><a href="https://github.com/udacity/reactnd-project-myreads-starter" target="_blank" rel="noopener">reactnd-project-myreads-starter</a><br><a href="https://github.com/sindresorhus/awesome-electron" target="_blank" rel="noopener">awesome-electron</a><br><a href="https://github.com/geekcompany/DeerResume" target="_blank" rel="noopener">DeerResume</a><br><a href="http://get.ftqq.com/744.get" target="_blank" rel="noopener">简历</a><br><a href="http://get.ftqq.com/8962.get" target="_blank" rel="noopener">以太坊（Ethereum ）白皮书</a><br><a href="http://get.ftqq.com/7812.get" target="_blank" rel="noopener">365种创业、办公、和生活成长的精华资源</a><br><a href="https://gitee.com/didispace/SpringBoot-Learning" target="_blank" rel="noopener">Spring Boot基础教程</a><br><a href="https://smallpdf.com/cn" target="_blank" rel="noopener">轻松玩转PDF</a><br><a href="http://redisdoc.com/" target="_blank" rel="noopener">Redis 命令参考</a><br><a href="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html" target="_blank" rel="noopener">IntelliJ IDEA For Mac 快捷键</a><br><a href="https://github.com/yzun/spring-cloud-study" target="_blank" rel="noopener">spring-cloud-study</a><br><a href="https://springcloud.cc/spring-cloud-dalston.html" target="_blank" rel="noopener">Spring Cloud</a><br><a href="https://www.kancloud.cn/lengleng/pig-guide/575838" target="_blank" rel="noopener">博客整理</a><br><a href="https://github.com/roncoo/roncoo-pay" target="_blank" rel="noopener">roncoo-pay</a><br><a href="https://mp.weixin.qq.com/s/ZX-XSu5todaKuqSOWvTgxw" target="_blank" rel="noopener">如何做一个对账系统</a><br><a href="http://blog.springcloud.cn/" target="_blank" rel="noopener">Spring Cloud中国社区博客</a><br><a href="http://springcloud.cn/" target="_blank" rel="noopener">Spring Cloud中国社区</a><br><a href="https://mp.weixin.qq.com/s/XTJ7jjax4BPEzrflnWFPhA" target="_blank" rel="noopener">最全支付系统设计，包含账户、交易、对账，风控</a><br><a href="http://www.mpaypass.com.cn/news/201807/10143038.html" target="_blank" rel="noopener">关于支付公司账户体系设计的一些思考</a><br><a href="https://github.com/SpringCloud/spring-cloud-document" target="_blank" rel="noopener">Spring Cloud中国社区线下沙龙文档</a><br><a href="https://github.com/keycastr/keycastr" target="_blank" rel="noopener">KeyCastr, an open-source keystroke visualizer</a><br><a href="https://www.pingcap.com/" target="_blank" rel="noopener">TiDB</a><br><a href="https://www.cnrancher.com/" target="_blank" rel="noopener">cnrancher</a><br><a href="https://www.yiibai.com/" target="_blank" rel="noopener">亿百</a><br><a href="http://www.mpaypass.com.cn/news/201809/30103803.html" target="_blank" rel="noopener">金融科技渗透P2P业务全链条：获客、风控、催收</a><br><a href="https://gitee.com/baomidou/kisso" target="_blank" rel="noopener">java 基于 Cookie 的 SSO 中间件 kisso</a><br><a href="https://www.cnblogs.com/EzrealLiu/p/5559255.html" target="_blank" rel="noopener">漫谈单点登录（SSO）</a><br><a href="https://mp.weixin.qq.com/s/z2kV9_FO-TyVNKhs1wxmFw" target="_blank" rel="noopener">互联网后端基础设施</a><br><a href="https://cachecloud.github.io/" target="_blank" rel="noopener">CacheCloud</a><br><a href="https://github.com/sohutv/cachecloud" target="_blank" rel="noopener">搜狐视频(sohu tv)Redis私有云平台</a><br><a href="http://www.cloudate.net/" target="_blank" rel="noopener">Fastpay</a><br><a href="https://gitee.com/liuyueyi/quick-alarm" target="_blank" rel="noopener">一个可扩展的报警系统Quick-Alarm</a><br><a href="https://gitee.com/zhangxd/spring-boot-cloud" target="_blank" rel="noopener">基于 Spring Cloud 的微服务架构</a><br><a href="https://gitee.com/vakinge/oneplatform" target="_blank" rel="noopener">onePlatform定位是企业级应用网关</a><br><a href="https://gitee.com/vakinge/jeesuite-passport" target="_blank" rel="noopener">用户统一通行证认证平台</a><br><a href="http://open.taobao.com/api.htm?docId=4&docType=2#" target="_blank" rel="noopener">淘宝开放平台</a><br><a href="https://durcframework.gitee.io/easyopen/" target="_blank" rel="noopener">一个简单易用的接口开放平台</a><br><a href="https://gitee.com/durcframework/easyopen" target="_blank" rel="noopener">一个简单易用的接口开放平台</a><br><a href="https://gitee.com/vakinge/jeesuite-libs" target="_blank" rel="noopener">分布式架构开发套件</a><br><a href="https://gitee.com/robertleepeak/fastpay" target="_blank" rel="noopener">Fastpay</a><br><a href="https://my.oschina.net/giegie" target="_blank" rel="noopener">pig-cloud</a><br><a href="https://www.consul.io/downloads.html" target="_blank" rel="noopener">hashicorp</a><br><a href="https://www.baeldung.com/sso-spring-security-oauth2" target="_blank" rel="noopener">baeldung</a><br><a href="https://www.jdon.com/" target="_blank" rel="noopener">解道</a><br><a href="https://github.com/auth0-blog/nodejs-jwt-authentication-sample" target="_blank" rel="noopener">nodejs-jwt-authentication-sample</a><br><a href="https://www.cnblogs.com/ericnie/p/7919017.html" target="_blank" rel="noopener">Istio微服务架构初试</a><br><a href="https://worktile.com/" target="_blank" rel="noopener">更好的企业协作平台</a><br><a href="https://www.cnblogs.com/ityouknow/category/914493.html" target="_blank" rel="noopener">纯洁的微笑</a><br><a href="https://github.com/whyalwaysmea/Spring-Security" target="_blank" rel="noopener">Spring-Security</a><br><a href="https://github.com/Luolc/EmojiRain" target="_blank" rel="noopener">EmojiRain</a><br><a href="https://github.com/longfeizheng/logback" target="_blank" rel="noopener">Blog_龙飞</a><br><a href="http://niocoder.com/" target="_blank" rel="noopener">谦和之中见卓越</a><br><a href="https://github.com/longfeizheng/sso-merryyou" target="_blank" rel="noopener">使用spring security和Oauht2 实现单点登录</a><br><a href="https://github.com/longfeizheng/blockchain-java" target="_blank" rel="noopener">java简单实现区块链</a><br><a href="https://www.jivochat.com/" target="_blank" rel="noopener">jivochat</a><br><a href="http://www.spring4all.com/article/424" target="_blank" rel="noopener">Spring-Security-入门（六）：QQ登录实现</a><br><a href="https://github.com/ChinaSilence/any-spring-security" target="_blank" rel="noopener">Spring Security DEMO &amp; Guides</a><br><a href="https://www.cnblogs.com/GoodHelper/p/8650243.html" target="_blank" rel="noopener">spring boot高性能实现二维码扫码登录(下)——订阅与发布机制版</a><br><a href="https://blog.csdn.net/luotuo818/article/details/78685842" target="_blank" rel="noopener">springboot spring-security 集成微信登录</a><br><a href="http://www.php.cn/php-weizijiaocheng-371646.html" target="_blank" rel="noopener">详解edusoho实现扫码登录功能实例</a><br><a href="https://www.jianshu.com/p/b6d0ab83be9d" target="_blank" rel="noopener">app扫码登录</a><br><a href="http://www.cnblogs.com/0201zcr/p/5133062.html" target="_blank" rel="noopener">微信开放平台开发——网页微信扫码登录（OAuth2.0）</a><br><a href="https://legacy.gitbook.com/book/simulatedgreg/electron-vue/details" target="_blank" rel="noopener">electron-vue</a><br><a href="https://github.com/xvshu/qrlogin" target="_blank" rel="noopener">二维码登录</a><br><a href="http://blog.didispace.com/xjf-spring-security-5/" target="_blank" rel="noopener">Spring Security(五)–动手实现一个IP_Login</a><br><a href="https://segmentfault.com/a/1190000014963611" target="_blank" rel="noopener">Go微服务 - 第八部分 - 使用Viper和Spring Cloud Config进行集中配置</a><br><a href="http://www.zxuqian.cn/" target="_blank" rel="noopener">为 Eureka 添加 Http Basic 认证</a><br><a href="https://gitee.com/zxuqian/spring-cloud/tree/spring-cloud-config-rsa" target="_blank" rel="noopener">Spring Cloud 教程源码</a><br><a href="http://blog.daocloud.io/ticket/" target="_blank" rel="noopener">道客船长，为你转身</a><br><a href="https://www.cnblogs.com/tuyile006/p/6268961.html" target="_blank" rel="noopener">微信小程序实例源码大全</a><br><a href="http://html51.com/" target="_blank" rel="noopener">小程序</a><br><a href="https://github.com/kdn251/interviews" target="_blank" rel="noopener">面试题</a><br><a href="https://github.com/crossoverJie/Java-Interview" target="_blank" rel="noopener">Java-Interview</a><br><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">Java面试指南</a><br><a href="https://zhuanlan.zhihu.com/p/21673805" target="_blank" rel="noopener">Java 8系列之重新认识HashMap</a><br><a href="http://www.cs.princeton.edu/" target="_blank" rel="noopener">princeton</a><br><a href="https://www.julyedu.com/question/big/kp_id/26/ques_id/2103" target="_blank" rel="noopener">7月在线</a><br><a href="http://pandoc.org/" target="_blank" rel="noopener">a universal document converter</a><br><a href="https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/07.01.md" target="_blank" rel="noopener">K近邻算法</a><br><a href="http://www.4hou.com/" target="_blank" rel="noopener">嘶吼</a><br><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a><br><a href="https://blog.csdn.net/v_july_v/article/details/78121924" target="_blank" rel="noopener">BAT机器学习面试1000题系列</a><br><a href="https://github.com/liuzheng/Intro2SVM" target="_blank" rel="noopener">向量机</a><br><a href="https://github.com/xlvector/hector" target="_blank" rel="noopener">Golang machine learning lib</a><br><a href="https://zhuanlan.zhihu.com/p/21673805" target="_blank" rel="noopener">Java 8系列之重新认识HashMap</a><br><a href="https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md" target="_blank" rel="noopener">教你透彻了解红黑树</a><br><a href="https://blog.csdn.net/u011240877/article/category/6447444" target="_blank" rel="noopener">Java 集合框架</a><br><a href="https://blog.csdn.net/s1547823103/article/details/79768938" target="_blank" rel="noopener">Java教程，Java学习路线图（全网最详细）</a><br><a href="http://www.java1234.com/" target="_blank" rel="noopener">java</a><br><a href="http://how2j.cn/" target="_blank" rel="noopener">java学习视频</a><br><a href="http://how2j.cn/k/hutubill/hutubill-tutorials/710.html" target="_blank" rel="noopener">一本糊涂账</a><br><a href="http://www.runoob.com/" target="_blank" rel="noopener">runoob</a><br><a href="https://gitee.com/javen205/weixin_guide" target="_blank" rel="noopener">极速开发微信公众号</a><br><a href="http://www.yangfuhai.com/" target="_blank" rel="noopener">杨福海的博客</a><br><a href="http://www.jfinal.com/" target="_blank" rel="noopener">JFinal</a><br><a href="https://github.com/JpressProjects/jpress" target="_blank" rel="noopener">全新 JPress</a><br><a href="http://www.jfinal.com/project/3" target="_blank" rel="noopener">JPress ，一个wordpress的java代替版</a><br><a href="http://www.jfinal.com/share/1178" target="_blank" rel="noopener">Antu 博客系统</a><br><a href="https://gitee.com/wenhaofan/AutuBlog" target="_blank" rel="noopener">AntuBlog 博客系统</a><br><a href="https://github.com/chakhsu/pinghsu" target="_blank" rel="noopener">Pinghsu Theme</a><br><a href="http://www.jfinal.com/project/13" target="_blank" rel="noopener">kungfu， 基于JFinal的微服务框架</a><br><a href="https://github.com/ticktack/kungfu" target="_blank" rel="noopener">A REST framework, base on JFinal.</a><br><a href="http://www.jfinal.com/project/172" target="_blank" rel="noopener">jboot-admin使用jboot开发的后台管理开源项目</a><br><a href="https://gitee.com/rlaxuc/jboot-admin" target="_blank" rel="noopener">rlaxuc</a><br><a href="https://gitee.com/fuhai/jboot" target="_blank" rel="noopener">fuhai</a><br><a href="https://gitee.com/fuhai/jpress/" target="_blank" rel="noopener">jpress</a><br><a href="https://github.com/zhoufengjob/ddcms" target="_blank" rel="noopener">呆萌狮内容管理</a><br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html" target="_blank" rel="noopener">java文档</a><br><a href="https://github.com/peterchenhdu/future-framework" target="_blank" rel="noopener">future-framework</a><br><a href="https://github.com/peterchenhdu/webbf" target="_blank" rel="noopener">Java Web工程demo 后端</a><br><a href="https://www.tenxcloud.com/" target="_blank" rel="noopener">时速云</a><br><a href="https://github.com/easychen/howto-make-more-money" target="_blank" rel="noopener">赚零花钱</a><br><a href="https://github.com/1c7/chinese-independent-developer" target="_blank" rel="noopener">中国独立开发者项目列表 </a><br><a href="https://github.com/Hanson/vbot" target="_blank" rel="noopener">wechat robot</a><br><a href="http://www.nebulogy.com/" target="_blank" rel="noopener">nebulogy</a><br><a href="http://chillyc.info/" target="_blank" rel="noopener">chillyc</a><br><a href="https://blog.csdn.net/cctt_1/article/details/78344253" target="_blank" rel="noopener">架构师必看：微服务架构综述</a><br><a href="https://www.cnblogs.com/moqiutao/p/8334780.html" target="_blank" rel="noopener">vue从入门到进阶：自定义指令directive，插件的封装以及混合mixins（七）</a><br><a href="https://www.cnblogs.com/hofmann/p/5220428.html" target="_blank" rel="noopener">用例图、顺序图、状态图、类图、包图、协作图</a><br><a href="https://blog.csdn.net/qq_27384769/article/details/79443242" target="_blank" rel="noopener">Spring Cloud Security OAuth2搭建授权服务</a><br><a href="https://blog.csdn.net/qq_27384769/article/details/79439801" target="_blank" rel="noopener">spring cloud 实战（干货）</a><br><a href="https://blog.csdn.net/congcong68/article/details/41113239" target="_blank" rel="noopener">Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错）</a><br><a href="http://www.cnblogs.com/jennybackup/p/5286554.html" target="_blank" rel="noopener">springmvc+spring-security+mybatis +redis +solar框架抽取</a><br><a href="https://blog.csdn.net/xxssyyyyssxx/article/details/72875290" target="_blank" rel="noopener">商城项目实战31：solar服务器搭建、搜索功能实现</a><br><a href="https://www.cnblogs.com/gao241/p/3190701.html" target="_blank" rel="noopener">配置sonar、jenkins进行持续审查</a><br><a href="http://cv.ftqq.com/?fr=github#" target="_blank" rel="noopener">简历</a><br><a href="https://www.jianshu.com/p/bd72b482cc9c" target="_blank" rel="noopener">sonar、jenkins构建代码检查</a><br><a href="https://www.cnblogs.com/lfs2640666960/p/9026612.html" target="_blank" rel="noopener">Dubbo和Spring Cloud微服务架构</a><br><a href="https://www.yiibai.com/spring/spring-tutorial-for-beginners.html" target="_blank" rel="noopener">spring</a><br><a href="https://www.jianshu.com/p/7ff8f31afebe" target="_blank" rel="noopener">Vue2.0完整生命周期（包括路由守卫）</a><br><a href="https://github.com/codecentric/spring-boot-admin" target="_blank" rel="noopener">spring-boot-admin</a><br><a href="https://www.aliyun.com/jiaocheng/topic_19463.html" target="_blank" rel="noopener">aliyun daocloud</a><br><a href="https://docs.web3j.io/" target="_blank" rel="noopener">web3j</a><br><a href="https://www.jianshu.com/p/e9ef92eaf4d1" target="_blank" rel="noopener">初始web3j</a><br><a href="https://www.cnblogs.com/youhui/articles/8884708.html" target="_blank" rel="noopener">Android使用Infura、Web3j、Http等方式接入以太坊区块链</a><br><a href="http://cw.hubwiz.com/card/c/ethereum-json-rpc-api/" target="_blank" rel="noopener">以太坊JSON RPC手册</a><br><a href="http://xc.hubwiz.com/course/5b2b6e82c02e6b6a59171de2?affid=723qq" target="_blank" rel="noopener">以太坊</a><br><a href="https://laravel-china.org/" target="_blank" rel="noopener">laravel</a><br><a href="https://blog.csdn.net/l18710006370/article/details/79709777" target="_blank" rel="noopener">以太坊/ethereum搭建单节点私有链，执行挖矿</a><br><a href="http://www.cnblogs.com/davidwang456/p/4446796.html" target="_blank" rel="noopener">spring源码分析之spring-messaging模块详解</a><br><a href="https://www.cnblogs.com/jyyzzjl/p/5474088.html" target="_blank" rel="noopener">[spring源码学习]八、IOC源码-messageSource</a><br><a href="https://www.cnblogs.com/thyong/p/8484945.html" target="_blank" rel="noopener">使用docker搭建wordpress</a><br><a href="https://yq.aliyun.com/articles/69584" target="_blank" rel="noopener">Docker部署WordPress LNMP(Nginx PHP MySQL)环境实践</a><br><a href="https://www.imooc.com/article/49049" target="_blank" rel="noopener">以DockerCompose的形式搭建基于nginx与wordpress镜像的博客系统</a><br><a href="http://blog.51cto.com/wutengfei/2054434" target="_blank" rel="noopener">使用Docker搭建WordPress博客（三）nginx镜像制作</a><br><a href="https://linux.cn/article-5560-1.html" target="_blank" rel="noopener">如何在 Docker 容器中架设一个完整的 WordPress 站点</a><br><a href="https://www.cnblogs.com/wushangjue/p/7810339.html" target="_blank" rel="noopener">Centos7.4下用Docker-Compose部署WordPress</a><br><a href="https://www.jianshu.com/p/f914eb5c9bf1" target="_blank" rel="noopener">docker容器安装wordpress（37）</a><br><a href="https://open.taobao.com/" target="_blank" rel="noopener">淘宝开放平台</a><br><a href="https://github.com/YunaiV" target="_blank" rel="noopener">源码</a><br><a href="http://www.cnblogs.com/winstonyan/archive/2011/12/16/b2c_research_product_er_model.html" target="_blank" rel="noopener">B2C电子商务系统研发——商品模块E-R图建模</a><br><a href="https://www.jianshu.com/u/cb569cce501b" target="_blank" rel="noopener">张丰哲</a><br><a href="https://www.jianshu.com/p/f454662f497e" target="_blank" rel="noopener">写出我的第一个框架：迷你版Spring MVC</a><br><a href="https://www.cnblogs.com/chenny7/p/4224720.html" target="_blank" rel="noopener">thrift 的原理和使用</a><br><a href="https://www.kubernetes.org.cn/" target="_blank" rel="noopener">Kubernetes中文网</a><br><a href="https://www.kubernetes.org.cn/docs" target="_blank" rel="noopener">Kubernetes中文手册</a><br><a href="https://www.kubernetes.org.cn/4630.html" target="_blank" rel="noopener">阿里云Kubernetes实战1–集群搭建与服务暴露</a><br><a href="https://blog.csdn.net/TM6zNf87MDG7Bo/article/details/79621510" target="_blank" rel="noopener">K8s基本概念入门</a><br><a href="https://cdc.tencent.com/" target="_blank" rel="noopener">tencent</a><br><a href="https://cdc.tencent.com/2018/07/12/%E3%80%90to-g%E8%AE%BE%E8%AE%A1%E8%B5%8B%E8%83%BD%E3%80%91%E6%B7%B1%E5%9C%B3%E6%99%BA%E6%85%A7%E5%85%9A%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">深圳智慧党建项目设计总结</a><br><a href="https://blog.csdn.net/physicsdandan/article/details/45667357" target="_blank" rel="noopener">nginx反向代理配置</a><br><a href="https://cloud.tencent.com/developer/article/1005170" target="_blank" rel="noopener">一个基于 Docker 的负载均衡实例</a><br><a href="https://cloud.tencent.com/developer/article/1066844" target="_blank" rel="noopener">亚马逊云平台的迁移过程</a><br><a href="https://github.com/191141516/docker" target="_blank" rel="noopener">使用docker构建nginx的负载均衡</a><br><a href="https://www.linuxidc.com/" target="_blank" rel="noopener">linuxidc公社</a><br><a href="http://www.ttlsa.com/nginx/use-nginx-proxy/" target="_blank" rel="noopener">搭建nginx反向代理用做内网域名转发</a><br><a href="https://blog.csdn.net/qq_29767317/article/details/78579800?locationNum=7&fps=1" target="_blank" rel="noopener">nginx页面不能正常访问排除方法</a><br><a href="https://blog.csdn.net/shzm0/article/details/78079607" target="_blank" rel="noopener">阿里云通过nginx,docker完美搭建Ngrok服务器（http,https）</a><br><a href="https://blog.csdn.net/qq_39591494/article/details/78070549?locationNum=5&fps=1" target="_blank" rel="noopener">Docker-compose构建nginx反向代理实例</a><br><a href="https://aotu.io/notes/2016/08/16/nginx-https/index.html" target="_blank" rel="noopener">O2</a><br><a href="https://www.cnblogs.com/reghao/p/8504719.html" target="_blank" rel="noopener">Nginx 配置 HTTP 和 HTTPS</a><br><a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/" target="_blank" rel="noopener">Mozilla SSL Configuration Generator</a><br><a href="https://www.centos.bz/" target="_blank" rel="noopener">运维日志</a><br><a href="https://yq.aliyun.com/articles/14747?spm=a2c4e.11153940.blogrightarea14805.17.38012fdfkEtfsj" target="_blank" rel="noopener">jumpserver 堡垒机环境搭建（图文详解）</a><br><a href="https://yq.aliyun.com/articles/14746?spm=a2c4e.11153940.blogrightarea14805.16.38012fdfkEtfsj" target="_blank" rel="noopener">jumpserver 堡垒机配置使用（图文详解）</a><br><a href="https://www.cnblogs.com/davidwang456/p/4786636.html" target="_blank" rel="noopener">WebSocket 前世今生</a><br><a href="http://www.ityouknow.com/docker.html" target="_blank" rel="noopener">纯洁的微笑</a><br><a href="https://blog.csdn.net/Tomstrong_369/article/details/51145467" target="_blank" rel="noopener">使用SSL验证和Nginx做代理搭建生产环境的Docker仓库</a><br><a href="https://blog.csdn.net/weixin_31655741/article/details/82226688" target="_blank" rel="noopener">给Docker中的Nginx搭建HTTPS环境</a><br><a href="https://www.hi-linux.com/posts/12554.html" target="_blank" rel="noopener">使用 Docker-Compose 编排容器</a><br><a href="http://www.keydatas.com/html/nginx.html?audience=320658" target="_blank" rel="noopener">nginx入门、安装配置与使用详解</a><br><a href="https://github.com/mqyqingfeng/Blog" target="_blank" rel="noopener">冴羽写博客的地方，预计写四个系列：JavaScript深入系列、JavaScript专题系列、ES6系列、React系列。</a><br><a href="https://github.com/fouber/blog" target="_blank" rel="noopener">没事写写文章</a><br><a href="https://github.com/nswbmw/N-blog" target="_blank" rel="noopener">《一起学 Node.js》</a><br><a href="https://github.com/fouber/page-monitor" target="_blank" rel="noopener">capture webpage and diff the dom change with phantomjs </a><br><a href="https://www.ezlippi.com/blog/2015/03/github-pages-blog.html" target="_blank" rel="noopener">利用github-pages建立个人博客</a><br><a href="https://www.kejianet.cn/website-https/" target="_blank" rel="noopener">wordpress全站开启https具体过程</a><br><a href="https://www.themepark.com.cn/" target="_blank" rel="noopener">themepark</a><br><a href="http://wpchina.org/" target="_blank" rel="noopener">wpchina</a><br><a href="http://how2j.cn/k/tmall_springboot/tmall_springboot-1797/1797.html" target="_blank" rel="noopener">tmall_springboot</a><br><a href="http://www.juhaovip.com/" target="_blank" rel="noopener">juhaovip</a><br><a href="http://www.juhaovip.com/thread-45495-1-2.html" target="_blank" rel="noopener">最新Java SSM淘淘商城12天电商项目</a><br><a href="https://blog.csdn.net/column/details/15737.html" target="_blank" rel="noopener"></a><br><a href="https://blog.csdn.net/column/details/15737.html" target="_blank" rel="noopener">淘淘商城系列</a><br><a href="https://github.com/pzhgugu/goshop2" target="_blank" rel="noopener">goshop2</a><br><a href="https://mp.weixin.qq.com/s/Hwwl1V3RcKNWB6oiKnYgSw" target="_blank" rel="noopener">跨域几种方式</a><br><a href="https://www.jianshu.com/p/edaeab59f56c" target="_blank" rel="noopener">使用Spring ThreadPoolTaskExecutor实现多线程任务</a><br><a href="https://github.com/dufyun/learn-tech-collection" target="_blank" rel="noopener">learn-tech-collection WebSocket</a><br><a href="https://github.com/gottaBoy/spring-boot-all" target="_blank" rel="noopener">spring-boot-all</a><br><a href="https://mp.weixin.qq.com/s/1EUkWn_BL4gv9_NpbXwC0g" target="_blank" rel="noopener">Vue.js最佳实践（五招让你成为Vue.js大师）</a><br><a href="http://www.iocoder.cn/Spring-Cloud-Gateway/manager-http-api/" target="_blank" rel="noopener">网关管理HTTP API</a><br><a href="https://www.jianshu.com/p/46d174f37e82" target="_blank" rel="noopener">阿里ARouter使用及源码解析（一）</a><br><a href="https://www.colabug.com/" target="_blank" rel="noopener">colabug</a><br><a href="http://www.broadview.com.cn/" target="_blank" rel="noopener">博文视点</a><br><a href="https://github.com/lexburner/spring-security-ipLogin" target="_blank" rel="noopener">spring-security-ipLogin</a><br><a href="https://www.cnblogs.com/fp2952/p/8973613.html" target="_blank" rel="noopener">Spring Cloud OAuth2（一） 搭建授权服务</a><br><a href="https://github.com/longfeizheng/logback" target="_blank" rel="noopener">Spring Security系列</a><br><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">面试</a><br><a href="https://mp.weixin.qq.com/s/6zLYQy8BAWZKCyZQvK7kdw" target="_blank" rel="noopener">拼多多版http-server</a><br><a href="https://www.cnblogs.com/vinozly/p/4851364.html" target="_blank" rel="noopener">RBAC用户角色权限设计方案</a><br><a href="https://blog.csdn.net/ljw499356212/article/details/81055141" target="_blank" rel="noopener">RBAC用户、角色、权限、组设计方案</a><br><a href="https://github.com/spring-cloud-samples/authserver" target="_blank" rel="noopener">authserver</a><br><a href="https://github.com/spring-cloud-samples/spring-cloud-gateway-sample" target="_blank" rel="noopener">spring-cloud-gateway-sample</a><br><a href="http://www.mvnjar.com/" target="_blank" rel="noopener">mvnjar</a><br><a href="https://es.xiaoleilu.com/" target="_blank" rel="noopener">Elasticsearch 权威指南</a><br><a href="https://github.com/elasticsearch-cn/elasticsearch-definitive-guide" target="_blank" rel="noopener">Elasticsearch</a><br><a href="https://www.jianshu.com/p/2c231c96a29b" target="_blank" rel="noopener">Spring Boot,Spring Security实现OAuth2 + JWT认证</a><br><a href="https://github.com/yinjihuan/spring-cloud" target="_blank" rel="noopener">《Spring Cloud微服务-全栈技术与案例解析》</a><br><a href="http://niocoder.com/2018/04/22/SpringBoot+Docker+Git+Jenkins%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">SpringBoot+Docker+Git+Jenkins实现简易的持续集成和持续部署</a><br><a href="https://gitee.com/merryyou/sso-merryyou" target="_blank" rel="noopener">sso-merryyou</a><br><a href="http://niocoder.com/categories/#Security" target="_blank" rel="noopener">Security 区块链</a><br><a href="http://www.cnblogs.com/sweetchildomine/p/6575666.html" target="_blank" rel="noopener">ThreadLoacl,InheritableThreadLocal,原理,以及配合线程池使用的一些坑</a><br><a href="https://blog.csdn.net/a837199685/article/details/52712547" target="_blank" rel="noopener">ThreadLocal父子线程传递实现方案</a><br><a href="https://blog.csdn.net/a837199685/article/details/50806876" target="_blank" rel="noopener">ThreadLocal源码分析解密</a><br><a href="https://www.cnblogs.com/sweetchildomine/p/8807059.html" target="_blank" rel="noopener">TransmittableThreadLocal</a><br><a href="http://www.cnblogs.com/sweetchildomine/p/6575666.html" target="_blank" rel="noopener">ThreadLoacl,InheritableThreadLocal,原理,以及配合线程池使用的一些坑</a><br><a href="http://www.ccwork.com.cn/menhu/" target="_blank" rel="noopener">ccwork</a><br><a href="http://www.h3c.com/cn/d_200812/624142_30003_0.htm" target="_blank" rel="noopener">Portal技术介绍</a><br><a href="https://www.cnblogs.com/ityouknow/p/8391593.html" target="_blank" rel="noopener">Spring Cloud Zuul网关 Filter、熔断、重试、高可用的使用方式。</a><br><a href="https://gitee.com/boleixiongdi/flyray-pirate" target="_blank" rel="noopener">flyray-pirate</a><br><a href="https://gitee.com/ityouknow/spring-cloud-examples" target="_blank" rel="noopener">Spring Cloud 学习案例</a><br><a href="http://cxytiandi.com/blog/detail/12107" target="_blank" rel="noopener">房价网是怎么使用分布式作业框架elastic-job</a><br><a href="https://www.jianshu.com/p/dd3c5b7d7694" target="_blank" rel="noopener">Elastic-Job-Spring-Boot-Starter简化你的任务配置</a><br><a href="https://blog.csdn.net/qq_31673689/article/details/80245593" target="_blank" rel="noopener">springboot整合定时框架-Elastic-job-lite</a><br><a href="https://www.jianshu.com/p/a9458887739d" target="_blank" rel="noopener">Elastic-Job动态添加任务</a><br><a href="https://gitee.wang/lengleng" target="_blank" rel="noopener">lengleng</a><br><a href="http://itindex.net/detail/56045-elastic-job-%E5%88%86%E5%B8%83" target="_blank" rel="noopener">Elastic-Job - 分布式定时任务框架</a><br><a href="https://github.com/je-ge/spring-boot" target="_blank" rel="noopener">菜鸟教程</a><br><a href="https://blog.csdn.net/je_ge" target="_blank" rel="noopener">菜鸟教程</a><br><a href="http://elasticjob.io/docs/elastic-job-lite/02-guide/" target="_blank" rel="noopener">elastic-job-lite</a><br><a href="https://blog.csdn.net/forezp/article/details/70148833" target="_blank" rel="noopener">史上最简单的 SpringCloud 教程 | 终章</a><br><a href="http://wiki.jikexueyuan.com/project/ethereum/ethereum-go-java-client.html" target="_blank" rel="noopener">以太坊Go、Java、Python、Ruby、JS客户端介绍</a><br><a href="http://ethcast.com/?page=3" target="_blank" rel="noopener">http://ethcast.com/?page=3</a><br><a href="http://www.servicemesher.com/awesome-servicemesh/" target="_blank" rel="noopener">Awesome Service Mesh</a><br><a href="https://katacoda.com/courses/istio/" target="_blank" rel="noopener">katacoda</a><br><a href="http://www.servicemesher.com/blog/practice-for-coohom-using-istio-in-production/" target="_blank" rel="noopener">云端设计平台Coohom在生产环境中使用istio的经验与实践</a><br><a href="http://www.servicemesher.com/blog/istio-ui-tutorial/" target="_blank" rel="noopener">istio-ui——一款开源的简易Istio UI的介绍和使用教程</a><br><a href="http://www.servicemesher.com/blog/raw-tcp-traffic-shaping-with-istio/" target="_blank" rel="noopener">Istio1.1.0下的TCP流量控制</a><br><a href="http://www.servicemesher.com/blog/naftis-istio-dashboard-xiaomi/" target="_blank" rel="noopener">小米正式开源Istio管理面板Naftis</a><br><a href="http://www.servicemesher.com/blog/istio-paas-integration/" target="_blank" rel="noopener">Istio微服务平台集成实践</a><br><a href="https://zengweigang.gitbooks.io/core-go/content/" target="_blank" rel="noopener">go语言</a><br><a href="https://oner-wv.gitbooks.io/scrapy_zh/content/%E7%AC%AC%E4%B8%80%E6%AD%A5/scrapy%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html" target="_blank" rel="noopener">Scrapy入门教程</a><br><a href="https://github.com/yinjihuan/netty-im" target="_blank" rel="noopener">netty-im</a><br><a href="https://blog.52itstyle.com/archives/2839/" target="_blank" rel="noopener">Docker学习之Dockerfile命令详解</a><br><a href="https://blog.52itstyle.com/archives/2868/" target="_blank" rel="noopener">SpringBoot开发案例之整合Kafka实现消息队列</a><br><a href="https://cloud.tencent.com/info/bb87cbdc3fa3d39bd0f012f9368af501.html" target="_blank" rel="noopener">从构建分布式秒杀系统聊聊验证码</a><br><a href="http://mi.talkingdata.com/" target="_blank" rel="noopener">talkingdata</a><br><a href="https://www.talkingdata.com/" target="_blank" rel="noopener">talkingdata</a><br><a href="https://mp.weixin.qq.com/s/-BsSivMrLrmz5zBR6DgK8Q" target="_blank" rel="noopener">SpringBoot几种定时任务的实现方式</a><br><a href="https://mp.weixin.qq.com/s/IRhxdg_cgkJQoSLiHooRsg" target="_blank" rel="noopener">nginx常用功能全揭秘</a><br><a href="https://mp.weixin.qq.com/s/_EmiyoZKz8Fdmgf2_HFeKA" target="_blank" rel="noopener">2018年10月GitHub上最热门的Vue.js开源项目</a><br><a href="https://www.wpdaxue.com/tutorials/" target="_blank" rel="noopener">WordPress建站</a><br><a href="http://www.wopus.org/wordpress-basic/getting-started/5169.html" target="_blank" rel="noopener">WordPress建站完全教程</a><br><a href="https://blog.csdn.net/lakeheart879/article/details/78247894" target="_blank" rel="noopener">用Linux命令行获取本机外网IP地址</a><br><a href="https://www.cnblogs.com/shamo89/p/7055039.html" target="_blank" rel="noopener">java并发之DelayQueue实际运用示例</a></p>
+<h3 id="导出Excel方法"><a href="#导出Excel方法" class="headerlink" title="导出Excel方法"></a>导出Excel方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;导出</span><br><span class="line">handleExport: function()&#123;</span><br><span class="line">  var params &#x3D; this.form;</span><br><span class="line">  var excelform &#x3D; document.createElement(&#39;form&#39;);</span><br><span class="line">  excelform.id &#x3D; &#39;excelform&#39;;</span><br><span class="line">  excelform.name &#x3D; &#39;excelform&#39;;</span><br><span class="line">  document.body.appendChild(excelform);</span><br><span class="line">  for(var obj in params) &#123;</span><br><span class="line">    if(params.hasOwnProperty(obj)) &#123;</span><br><span class="line">      var input &#x3D; document.createElement(&#39;input&#39;);</span><br><span class="line">      input.tpye&#x3D;&#39;hidden&#39;;</span><br><span class="line">      input.name &#x3D; obj;</span><br><span class="line">      input.value &#x3D; params[obj];</span><br><span class="line">      excelform.appendChild(input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  excelform.method &#x3D; &quot;POST&quot;;&#x2F;&#x2F;请求方式</span><br><span class="line">  excelform.action &#x3D; &#39;$&#123;request.contextPath&#125;&#x2F;newInvoice&#x2F;exportStatementCustom?page&#x3D;-1&#39;;</span><br><span class="line">  excelform.submit();</span><br><span class="line">  document.body.removeChild(excelform);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export function lightExport(params) &#123;  </span><br><span class="line">  return request(&#123;  </span><br><span class="line">    url: url + &#39;wishingOrderRest&#x2F;orderExportExcel&#39;,  </span><br><span class="line">    method: &#39;post&#39;,  </span><br><span class="line">    params,  </span><br><span class="line">    responseType: &#39;arraybuffer&#39;  &#x2F;&#x2F; 添加相应类型buffer  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">handleDownload () &#123;</span><br><span class="line">  var _this &#x3D; this</span><br><span class="line">  this.form.pageSize &#x3D; this.pageSize</span><br><span class="line">  this.form.pageNum &#x3D; this.pageNum</span><br><span class="line">  lightExport(this.form)</span><br><span class="line">  .then(res &#x3D;&gt; &#123;  </span><br><span class="line">     console.log(typeof(res)) </span><br><span class="line">     &#x2F;&#x2F; var blob &#x3D; res         </span><br><span class="line">    &#x2F;&#x2F; var blob &#x3D; new Blob([res], &#123; type: &#39;application&#x2F;x-xls&#39; &#125;)          </span><br><span class="line">          var blob &#x3D; new Blob([res], &#123; type: &#39;application&#x2F;vdn.ms-excel&#39; &#125;)          </span><br><span class="line">          var reader &#x3D; new FileReader();          </span><br><span class="line">          reader.readAsDataURL(blob);  &#x2F;&#x2F; 转换为base64，可以直接放入a表情href          </span><br><span class="line">        &#x2F;&#x2F; 文件读取成功的回调          </span><br><span class="line">        reader.onload &#x3D; function (e) &#123;</span><br><span class="line">          &#x2F;&#x2F;判断是否有导出内容</span><br><span class="line">          if (blob.size &lt;&#x3D; 0) &#123;handleDownload</span><br><span class="line">            _this.$message.warning(&#39;没有内容导出&#39;)</span><br><span class="line">            return</span><br><span class="line">          &#125;</span><br><span class="line">        var a &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">        a.download &#x3D; &#39;lightTemplate.xls&#39;</span><br><span class="line">        a.href &#x3D; e.target.result;</span><br><span class="line">        &#x2F;&#x2F; $(&quot;body&quot;).append(a);  &#x2F;&#x2F; 修复firefox中无法触发click</span><br><span class="line">        a.click();</span><br><span class="line">        &#x2F;&#x2F; $(a).remove();</span><br><span class="line">      &#125;</span><br><span class="line">        &#x2F;&#x2F; 文件读取失败的回调</span><br><span class="line">        reader.onerror &#x3D; function (e) &#123;</span><br><span class="line">          _this.$message.error(&#39;文件导出失败&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(() &#x3D;&gt; &#123;</span><br><span class="line">        this.$message.error(&#39;导出失败&#39;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">修改本地maven setting.xml文件</span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line">   &lt;mirror&gt;</span><br><span class="line">     &lt;id&gt;alimaven&lt;&#x2F;id&gt;</span><br><span class="line">     &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;</span><br><span class="line">     &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">     &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;        </span><br><span class="line">   &lt;&#x2F;mirror&gt;</span><br><span class="line">&lt;&#x2F;mirrors&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><a href="https://www.cnblogs.com/moqiutao/p/8334780.html" target="_blank" rel="noopener">vue从入门到进阶：自定义指令directive，插件的封装以及混合mixins（七）</a></p>
+<p>###<br><a href="https://blog.csdn.net/defonds/article/details/36678783" target="_blank" rel="noopener">Linux 下 Eureka 服务器的部署</a><br><a href="https://www.cnblogs.com/mcgrady/p/7614417.html" target="_blank" rel="noopener">bitMQ服务器搭建</a><br><a href="https://www.jianshu.com/p/f9b209171062" target="_blank" rel="noopener">Rabbitmq Server 安装</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    gottaBoy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://gottaboy.cn/2018/03/23/2018-03-23-web-source/" title="freepik">http://gottaboy.cn/2018/03/23/2018-03-23-web-source/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/freepik/" rel="tag"><i class="fa fa-tag"></i> freepik</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/2018-03-23-web-vue/" rel="next" title="freepik">
+                <i class="fa fa-chevron-left"></i> freepik
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/12/2018-04-12-zookeeper/" rel="prev" title="ZooKeeper">
+                ZooKeeper <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">gottaBoy</p>
+              <p class="site-description motion-element" itemprop="description">爱生活，爱分享</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gottaboy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:gottaboy@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+<div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="https://music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、freepik"><span class="nav-number">1.</span> <span class="nav-text">一、freepik</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出Excel方法"><span class="nav-number">3.</span> <span class="nav-text">导出Excel方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">4.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">5.</span> <span class="nav-text">方法三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">6.</span> <span class="nav-text">结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gottaBoy</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">195k</span>
+  
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blog, java, go, vue" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="圣女哥哥的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="红黑树概念 左旋，右旋，变色  左旋（rotate left）、右旋（rotate right）。左旋全称其实是叫围绕某个节点的左旋 为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色 将关注节点 a 的父节点 b、叔叔节点 d 的颜色都设置成黑色； 将关注节点 a 的祖父节点 c 的颜色设置成红色； 关注节点变成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红黑树">
+<meta property="og:url" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/index.html">
+<meta property="og:site_name" content="圣女哥哥的博客">
+<meta property="og:description" content="红黑树概念 左旋，右旋，变色  左旋（rotate left）、右旋（rotate right）。左旋全称其实是叫围绕某个节点的左旋 为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色 将关注节点 a 的父节点 b、叔叔节点 d 的颜色都设置成黑色； 将关注节点 a 的祖父节点 c 的颜色设置成红色； 关注节点变成">
+<meta property="og:image" content="https://blog.csdn.net/lsr40/article/details/85230703">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/rb-rotate.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case1.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case2.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case3.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case1.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case2.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case3.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case1.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case2.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case3.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case4.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/insert.jpg">
+<meta property="og:image" content="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/result.jpg">
+<meta property="article:published_time" content="2020-01-04T04:12:55.000Z">
+<meta property="article:modified_time" content="2020-01-05T04:26:54.953Z">
+<meta property="article:author" content="gottaBoy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.csdn.net/lsr40/article/details/85230703">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gottaboy.cn/2020/01/04/红黑树/"/>
+
+
+
+
+
+  <title>红黑树 | 圣女哥哥的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gottaboy" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">圣女哥哥的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">快乐生活每一天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gottaBoy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="圣女哥哥的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">红黑树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-04T12:12:55+08:00">
+                2020-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><img src="https://blog.csdn.net/lsr40/article/details/85230703" alt=""></p>
+<h3 id="左旋，右旋，变色"><a href="#左旋，右旋，变色" class="headerlink" title="左旋，右旋，变色"></a>左旋，右旋，变色</h3><!-- #### 左旋前
+![rotateLeftBefore](/2020/01/04/红黑树/rotateLeftBefore.png)
+#### 左旋
+![rotateLeft](/2020/01/04/红黑树/rotateLeft.png)
+#### 左旋后
+![rotateLeftAfter](/2020/01/04/红黑树/rotateLeftAfter.png)
+#### 右旋前
+![rotateRightBefore](/2020/01/04/红黑树/rotateRightBefore.png)
+#### 右旋
+![rotateRight](/2020/01/04/红黑树/rotateRight.png)
+#### 右旋后
+![rotateRightAfter](/2020/01/04/红黑树/rotateRightAfter.png) -->
+
+<h2 id="左旋（rotate-left）、右旋（rotate-right）。左旋全称其实是叫围绕某个节点的左旋"><a href="#左旋（rotate-left）、右旋（rotate-right）。左旋全称其实是叫围绕某个节点的左旋" class="headerlink" title="左旋（rotate left）、右旋（rotate right）。左旋全称其实是叫围绕某个节点的左旋"></a>左旋（rotate left）、右旋（rotate right）。左旋全称其实是叫围绕某个节点的左旋</h2><p><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/rb-rotate.jpg" alt="rb-rotate"></p>
+<h2 id="为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。"><a href="#为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。" class="headerlink" title="为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。"></a>为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。</h2><h3 id="CASE-1：如果关注节点是-a，它的叔叔节点-d-是红色"><a href="#CASE-1：如果关注节点是-a，它的叔叔节点-d-是红色" class="headerlink" title="CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色"></a>CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色</h3><ul>
+<li>将关注节点 a 的父节点 b、叔叔节点 d 的颜色都设置成黑色；</li>
+<li>将关注节点 a 的祖父节点 c 的颜色设置成红色；</li>
+<li>关注节点变成 a 的祖父节点 c；</li>
+<li>跳到 CASE 2 或者 CASE 3。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case1.jpg" alt="case1"></li>
+</ul>
+<h3 id="CASE-2：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的右子节点"><a href="#CASE-2：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的右子节点" class="headerlink" title="CASE 2：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的右子节点"></a>CASE 2：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的右子节点</h3><ul>
+<li>关注节点变成节点 a 的父节点 b；</li>
+<li>围绕新的关注节点b 左旋；</li>
+<li>跳到 CASE 3。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case2.jpg" alt="case2"></li>
+</ul>
+<h3 id="CASE-3：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的左子节点"><a href="#CASE-3：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的左子节点" class="headerlink" title="CASE 3：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的左子节点"></a>CASE 3：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的左子节点</h3><ul>
+<li>围绕关注节点 a 的祖父节点 c 右旋；</li>
+<li>将关注节点 a 的父节点 b、兄弟节点 c 的颜色互换。</li>
+<li>调整结束。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/case3.jpg" alt="case3"></li>
+</ul>
+<h1 id="删除操作的平衡调整"><a href="#删除操作的平衡调整" class="headerlink" title="删除操作的平衡调整"></a>删除操作的平衡调整</h1><h2 id="初步调整"><a href="#初步调整" class="headerlink" title="初步调整"></a>初步调整</h2><h3 id="CASE-1：如果要删除的节点是-a，它只有一个子节点-b"><a href="#CASE-1：如果要删除的节点是-a，它只有一个子节点-b" class="headerlink" title="CASE 1：如果要删除的节点是 a，它只有一个子节点 b"></a>CASE 1：如果要删除的节点是 a，它只有一个子节点 b</h3><ul>
+<li>删除节点 a，并且把节点 b 替换到节点 a 的位置，这一部分操作跟普通的二叉查找树的删除操作一样；</li>
+<li>节点 a 只能是黑色，节点 b 也只能是红色，其他情况均不符合红黑树的定义。这种情况下，我们把节点 b 改为黑色；</li>
+<li>调整结束，不需要进行二次调整<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case1.jpg" alt="case1"></li>
+</ul>
+<h3 id="CASE-2：如果要删除的节点-a-有两个非空子节点，并且它的后继节点就是节点-a-的右子节点-c"><a href="#CASE-2：如果要删除的节点-a-有两个非空子节点，并且它的后继节点就是节点-a-的右子节点-c" class="headerlink" title="CASE 2：如果要删除的节点 a 有两个非空子节点，并且它的后继节点就是节点 a 的右子节点 c"></a>CASE 2：如果要删除的节点 a 有两个非空子节点，并且它的后继节点就是节点 a 的右子节点 c</h3><ul>
+<li>如果节点 a 的后继节点就是右子节点 c，那右子节点 c 肯定没有左子树。我们把节点 a 删除，并且将节点 c 替换到节点 a 的位置。这一部分操作跟普通的二叉查找树的删除操作无异；</li>
+<li>然后把节点 c 的颜色设置为跟节点 a 相同的颜色；</li>
+<li>如果节点 c 是黑色，为了不违反红黑树的最后一条定义，我们给节点 c 的右子节点 d 多加一个黑色，这个时候节点 d 就成了“红 - 黑”或者“黑 - 黑”；</li>
+<li>这个时候，关注节点变成了节点 d，第二步的调整操作就会针对关注节点来做。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case2.jpg" alt="case2"></li>
+</ul>
+<h3 id="CASE-3：如果要删除的是节点-a，它有两个非空子节点，并且节点-a-的后继节点不是右子节点"><a href="#CASE-3：如果要删除的是节点-a，它有两个非空子节点，并且节点-a-的后继节点不是右子节点" class="headerlink" title="CASE 3：如果要删除的是节点 a，它有两个非空子节点，并且节点 a 的后继节点不是右子节点"></a>CASE 3：如果要删除的是节点 a，它有两个非空子节点，并且节点 a 的后继节点不是右子节点</h3><ul>
+<li>找到后继节点 d，并将它删除，删除后继节点 d 的过程参照 CASE 1；</li>
+<li>将节点 a 替换成后继节点 d；</li>
+<li>把节点 d 的颜色设置为跟节点 a 相同的颜色；</li>
+<li>如果节点 d 是黑色，为了不违反红黑树的最后一条定义，我们给节点 d 的右子节点 c 多加一个黑色，这个时候节点 c 就成了“红 - 黑”或者“黑 - 黑”；</li>
+<li>这个时候，关注节点变成了节点 c，第二步的调整操作就会针对关注节点来做。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/delete_case3.jpg" alt="case3"></li>
+</ul>
+<h2 id="二次调整"><a href="#二次调整" class="headerlink" title="二次调整"></a>二次调整</h2><h3 id="CASE-1：如果关注节点是-a，它的兄弟节点-c-是红色的"><a href="#CASE-1：如果关注节点是-a，它的兄弟节点-c-是红色的" class="headerlink" title="CASE 1：如果关注节点是 a，它的兄弟节点 c 是红色的"></a>CASE 1：如果关注节点是 a，它的兄弟节点 c 是红色的</h3><ul>
+<li>围绕关注节点 a 的父节点 b 左旋；</li>
+<li>关注节点 a 的父节点 b 和祖父节点 c 交换颜色；</li>
+<li>关注节点不变；</li>
+<li>继续从四种情况中选择适合的规则来调整<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case1.jpg" alt="balance_case1"></li>
+</ul>
+<h3 id="CASE-2：如果关注节点是-a，它的兄弟节点-c-是黑色的，并且节点-c-的左右子节点-d、e-都是黑色的"><a href="#CASE-2：如果关注节点是-a，它的兄弟节点-c-是黑色的，并且节点-c-的左右子节点-d、e-都是黑色的" class="headerlink" title="CASE 2：如果关注节点是 a，它的兄弟节点 c 是黑色的，并且节点 c 的左右子节点 d、e 都是黑色的"></a>CASE 2：如果关注节点是 a，它的兄弟节点 c 是黑色的，并且节点 c 的左右子节点 d、e 都是黑色的</h3><ul>
+<li>将关注节点 a 的兄弟节点 c 的颜色变成红色；</li>
+<li>从关注节点 a 中去掉一个黑色，这个时候节点 a 就是单纯的红色或者黑色；</li>
+<li>给关注节点 a 的父节点 b 添加一个黑色，这个时候节点 b 就变成了“红 - 黑”或者“黑 - 黑”；</li>
+<li>关注节点从 a 变成其父节点 b；</li>
+<li>继续从四种情况中选择符合的规则来调整<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case2.jpg" alt="balance_case2"></li>
+</ul>
+<h3 id="CASE-3：如果关注节点是-a，它的兄弟节点-c-是黑色，c-的左子节点-d-是红色，c-的右子节点-e-是黑色"><a href="#CASE-3：如果关注节点是-a，它的兄弟节点-c-是黑色，c-的左子节点-d-是红色，c-的右子节点-e-是黑色" class="headerlink" title="CASE 3：如果关注节点是 a，它的兄弟节点 c 是黑色，c 的左子节点 d 是红色，c 的右子节点 e 是黑色"></a>CASE 3：如果关注节点是 a，它的兄弟节点 c 是黑色，c 的左子节点 d 是红色，c 的右子节点 e 是黑色</h3><ul>
+<li>围绕关注节点 a 的兄弟节点 c 右旋；</li>
+<li>节点 c 和节点 d 交换颜色；</li>
+<li>关注节点不变；</li>
+<li>跳转到 CASE 4，</li>
+<li>继续调整。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case3.jpg" alt="balance_case3"></li>
+</ul>
+<h3 id="CASE-4：如果关注节点-a-的兄弟节点-c-是黑色的，并且-c-的右子节点是红色的"><a href="#CASE-4：如果关注节点-a-的兄弟节点-c-是黑色的，并且-c-的右子节点是红色的" class="headerlink" title="CASE 4：如果关注节点 a 的兄弟节点 c 是黑色的，并且 c 的右子节点是红色的"></a>CASE 4：如果关注节点 a 的兄弟节点 c 是黑色的，并且 c 的右子节点是红色的</h3><ul>
+<li>围绕关注节点 a 的父节点 b 左旋；</li>
+<li>将关注节点 a 的兄弟节点 c 的颜色，跟关注节点 a 的父节点 b 设置成相同的颜色；</li>
+<li>将关注节点 a 的父节点 b 的颜色设置为黑色；</li>
+<li>从关注节点 a 中去掉一个黑色，节点 a 就变成了单纯的红色或者黑色；</li>
+<li>将关注节点 a 的叔叔节点 e 设置为黑色；</li>
+<li>调整结束。<br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/balance_case4.jpg" alt="balance_case4"></li>
+</ul>
+<p><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/insert.jpg" alt="insert"><br><img src="/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/result.jpg" alt="result"></p>
+<hr>
+<h3 id="补充链接"><a href="#补充链接" class="headerlink" title="补充链接"></a>补充链接</h3><!-- 行内链接 -->
+<p><a href="https://www.jianshu.com/p/d9d9f223f0ad" target="_blank" rel="noopener">红黑树</a></p>
+<!-- [参考链接] -->
+<p>[红黑树]: <a href="https://blog.csdn.net/lsr40/article/details/85322371" target="_blank" rel="noopener">https://blog.csdn.net/lsr40/article/details/85322371</a> 红黑树</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    gottaBoy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">http://gottaboy.cn/2020/01/04/%E7%BA%A2%E9%BB%91%E6%A0%91/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/04/HashMap/" rel="next" title="HashMap">
+                <i class="fa fa-chevron-left"></i> HashMap
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/05/CopyOnWriteArrayList/" rel="prev" title="CopyOnWriteArrayList">
+                CopyOnWriteArrayList <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">gottaBoy</p>
+              <p class="site-description motion-element" itemprop="description">爱生活，爱分享</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gottaboy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:gottaboy@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+<div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="https://music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树"><span class="nav-number">1.</span> <span class="nav-text">红黑树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左旋，右旋，变色"><span class="nav-number">1.2.</span> <span class="nav-text">左旋，右旋，变色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左旋（rotate-left）、右旋（rotate-right）。左旋全称其实是叫围绕某个节点的左旋"><span class="nav-number">2.</span> <span class="nav-text">左旋（rotate left）、右旋（rotate right）。左旋全称其实是叫围绕某个节点的左旋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。"><span class="nav-number">3.</span> <span class="nav-text">为了简化描述，我把父节点的兄弟节点叫作叔叔节点，父节点的父节点叫作祖父节点。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-1：如果关注节点是-a，它的叔叔节点-d-是红色"><span class="nav-number">3.1.</span> <span class="nav-text">CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-2：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的右子节点"><span class="nav-number">3.2.</span> <span class="nav-text">CASE 2：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的右子节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-3：如果关注节点是-a，它的叔叔节点-d-是黑色，关注节点-a-是其父节点-b-的左子节点"><span class="nav-number">3.3.</span> <span class="nav-text">CASE 3：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的左子节点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除操作的平衡调整"><span class="nav-number"></span> <span class="nav-text">删除操作的平衡调整</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初步调整"><span class="nav-number">1.</span> <span class="nav-text">初步调整</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-1：如果要删除的节点是-a，它只有一个子节点-b"><span class="nav-number">1.1.</span> <span class="nav-text">CASE 1：如果要删除的节点是 a，它只有一个子节点 b</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-2：如果要删除的节点-a-有两个非空子节点，并且它的后继节点就是节点-a-的右子节点-c"><span class="nav-number">1.2.</span> <span class="nav-text">CASE 2：如果要删除的节点 a 有两个非空子节点，并且它的后继节点就是节点 a 的右子节点 c</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-3：如果要删除的是节点-a，它有两个非空子节点，并且节点-a-的后继节点不是右子节点"><span class="nav-number">1.3.</span> <span class="nav-text">CASE 3：如果要删除的是节点 a，它有两个非空子节点，并且节点 a 的后继节点不是右子节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二次调整"><span class="nav-number">2.</span> <span class="nav-text">二次调整</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-1：如果关注节点是-a，它的兄弟节点-c-是红色的"><span class="nav-number">2.1.</span> <span class="nav-text">CASE 1：如果关注节点是 a，它的兄弟节点 c 是红色的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-2：如果关注节点是-a，它的兄弟节点-c-是黑色的，并且节点-c-的左右子节点-d、e-都是黑色的"><span class="nav-number">2.2.</span> <span class="nav-text">CASE 2：如果关注节点是 a，它的兄弟节点 c 是黑色的，并且节点 c 的左右子节点 d、e 都是黑色的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-3：如果关注节点是-a，它的兄弟节点-c-是黑色，c-的左子节点-d-是红色，c-的右子节点-e-是黑色"><span class="nav-number">2.3.</span> <span class="nav-text">CASE 3：如果关注节点是 a，它的兄弟节点 c 是黑色，c 的左子节点 d 是红色，c 的右子节点 e 是黑色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-4：如果关注节点-a-的兄弟节点-c-是黑色的，并且-c-的右子节点是红色的"><span class="nav-number">2.4.</span> <span class="nav-text">CASE 4：如果关注节点 a 的兄弟节点 c 是黑色的，并且 c 的右子节点是红色的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充链接"><span class="nav-number">2.5.</span> <span class="nav-text">补充链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gottaBoy</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">195k</span>
+  
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
